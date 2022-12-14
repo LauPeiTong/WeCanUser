@@ -1,0 +1,16 @@
+// Ref: https://github.com/nuxt-community/vuetify-module#customvariables
+//
+// The variables you want to modify
+// $font-size-root: 20px;
+
+.text-h6 {
+  letter-spacing: -0.014em !important;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.upper-row {
+  min-height: 92px;
+}
