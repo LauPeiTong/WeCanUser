@@ -10,7 +10,7 @@
       v-row
         v-col(:cols="10")
           p.mb-0.font-weight-medium.text-h6(:class="color ? 'white--text' : 'secondary--text'") {{ label }}
-        v-col.text-right(v-if="cornerIcon" :cols="2")  
+        v-col.text-right(v-if="cornerIcon" :cols="2")
           //- Error: child cannot be removed
           v-btn(icon @click.stop="emitIconClick")
             client-only
@@ -20,7 +20,7 @@
       slot(name="content")
     v-card-actions.px-4.pb-4
       slot(name="action")
-  
+
   v-card.rounded-xl.d-flex.flex-column.justify-start(
     v-else
     :min-height="height"
@@ -31,7 +31,7 @@
       v-row
         v-col(:cols="10")
           p.mb-0.font-weight-medium.text-h6(:class="color ? 'white--text' : 'secondary--text'") {{ label }}
-        v-col.text-right(v-if="cornerIcon" :cols="2")  
+        v-col.text-right(v-if="cornerIcon" :cols="2")
           //- Error: child cannot be removed
           v-btn(icon)
             client-only

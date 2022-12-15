@@ -54,7 +54,7 @@ import { mapGetters } from 'vuex'
 
 import UpperTitle from '../components/UpperTitle.vue'
 import WIcon from '../components/componenets-custom/WIcon.vue'
-import JobDescription from '../components/Home/JobDescription.vue'
+import JobDescription from '../components/home/JobDescription.vue'
 
 export default {
   name: 'JobDetailsPage',

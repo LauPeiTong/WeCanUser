@@ -7,6 +7,11 @@ export const getters = {
       height: `${window.innerHeight - 150}px`
     }
   },
+  getScrollYClass (state) {
+    return {
+      height: `${window.innerHeight - 2}px`
+    }
+  },
   getScrollXClass (state) {
     return {
       width: `${window.innerWidth - 2}px`

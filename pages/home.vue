@@ -8,7 +8,7 @@
     ads-carousel.pt-4
     shops-list.pb-4
     item-list.pb-4
-    job-list.px-4.pb-4(:items="recommendedJob" :title="'Recommeded for you'")
+    shop-vertical-list.px-4.pb-4(:items="shops" :title="'Shops recommeded for you'")
 </template>
 
 <script>
@@ -16,11 +16,11 @@ import { mapGetters } from 'vuex'
 
 import UpperTitle from '../components/UpperTitle.vue'
 import WSearchBar from '../components/componenets-custom/WSearchBar.vue'
-import AdsCarousel from '../components/Home/AdsCarousel.vue'
-import ShopsList from '../components/Home/ShopsList.vue'
-import ItemList from '../components/Home/ItemList.vue'
-import CategoryList from '../components/Home/CategoryList.vue'
-import JobList from '../components/Home/JobList.vue'
+import AdsCarousel from '../components/home/AdsCarousel.vue'
+import ShopsList from '../components/home/ShopsList.vue'
+import ItemList from '../components/home/ItemList.vue'
+import CategoryList from '../components/home/CategoryList.vue'
+import ShopVerticalList from '../components/home/ShopVerticalList.vue'
 
 export default {
   name: 'HomePage',
@@ -31,7 +31,7 @@ export default {
     ShopsList,
     ItemList,
     CategoryList,
-    JobList
+    ShopVerticalList
   },
   layout: 'default',
   data () {
@@ -42,6 +42,7 @@ export default {
   computed: {
     ...mapGetters({
       scrollSize: 'screen/getScrollClass',
+      shops: 'home/getShops',
       recommendedJob: 'home/getRecommededJob'
     })
   },

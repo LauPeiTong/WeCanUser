@@ -22,7 +22,7 @@
       template(v-slot:default="{item}")
         .align-center
           v-card.mx-auto.rounded-lg(
-            @click=""
+            @click="goToShopPage(item)"
             outlined
           )
             v-img.rounded-lg(:src="require(`../../assets/home/shops/${item.src.toLowerCase()}.jpg`)" width="140" height="130")
@@ -73,7 +73,7 @@ export default {
   },
   methods: {
     ...mapActions({
-      changeSelectedCategory: 'home/changeSelectedCategory'
+      changeSelectedShop: 'home/changeSelectedShop'
     }),
     cardColor (id) {
       if (id % 3 === 1) {
@@ -90,9 +90,9 @@ export default {
     viewAllCategories () {
       this.$router.push('/categories')
     },
-    goToJobsPage (item) {
-      this.changeSelectedCategory(item)
-      this.$router.push('/jobs')
+    goToShopPage (item) {
+      this.changeSelectedShop(item)
+      this.$router.push('/shopdetails')
     }
   }
 }

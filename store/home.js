@@ -12,13 +12,13 @@ export const state = () => ({
     { id: 7, name: 'Bakery', new_job: 71 }
   ],
   shops: [
-    { id: 1, name: 'MyNews', address: 'Seri Kembangan, Selangor', distance: 1.2, rate: 4.8, src: 'mynews' },
-    { id: 2, name: 'Sushi King', address: 'Shah Alam, Selangor', distance: 1.3, rate: 4.3, src: 'sushiking' },
-    { id: 3, name: 'Secret Recipe', address: 'Shah Alam, Selangor', distance: 1.5, rate: 4.5, src: 'secretrecipe' },
-    { id: 4, name: 'BananaBro', address: 'Shah Alam, Selangor', distance: 1.2, rate: 4.1, src: 'bananabro' },
-    { id: 5, name: '99 Speedmart', address: 'Shah Alam, Selangor', distance: 1.2, rate: 4.8, src: '99speedmart' },
-    { id: 6, name: 'Aeon', address: 'Petaling Jaya, Selangor', distance: 2.8, rate: 4.8, src: 'aeon' },
-    { id: 7, name: 'Family Mart', address: 'Petaling Jaya, Selangor', distance: 2.8, rate: 4.8, src: 'familymart' }
+    { id: 1, name: 'MyNews', address: 'Seri Kembangan, Selangor', distance: 1.2, rate: 4.8, src: 'mynews', tags: ['Halal'], duration: 20, deliveryFee: 400 },
+    { id: 2, name: 'Sushi King', address: 'Shah Alam, Selangor', distance: 1.3, rate: 4.3, src: 'sushiking', tags: ['Halal'], duration: 20, deliveryFee: 400 },
+    { id: 3, name: 'Secret Recipe', address: 'Shah Alam, Selangor', distance: 1.5, rate: 4.5, src: 'secretrecipe', tags: ['Halal', 'Free delivery'], duration: 20, deliveryFee: 500 },
+    { id: 4, name: 'BananaBro', address: 'Shah Alam, Selangor', distance: 1.2, rate: 4.1, src: 'bananabro', tags: ['Halal'], duration: 20, deliveryFee: 400 },
+    { id: 5, name: '99 Speedmart', address: 'Shah Alam, Selangor', distance: 1.2, rate: 4.8, src: '99speedmart', tags: [], duration: 20, deliveryFee: 400 },
+    { id: 6, name: 'Aeon', address: 'Petaling Jaya, Selangor', distance: 2.8, rate: 4.8, src: 'aeon', tags: ['Free delivery'], duration: 30, deliveryFee: 600 },
+    { id: 7, name: 'Family Mart', address: 'Petaling Jaya, Selangor', distance: 2.8, rate: 4.8, src: 'familymart', tags: [], duration: 30, deliveryFee: 600 }
   ],
   foods: [
     { id: 1, name: 'Rose Lychee Cake', shop: 3, discount: 0.5, originalPrice: 899, quantity: '1 pcs', expiredDate: 'Today, 11:00pm', src: 'roselycheecake' },

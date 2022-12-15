@@ -1,5 +1,5 @@
 <template lang="pug">
-v-row.woreer-search-bar.px-6
+v-row.wecan-search-bar.px-6
   v-text-field.pt-0.mt-0.rounded-lg(
     v-model="modelValue"
     label="Search"
@@ -44,7 +44,7 @@ export default {
   font-size: 18px;
 }
 
-.woreer-search-bar {
+.wecan-search-bar {
   position: absolute;
   top: 70px;
   width: 100%;
