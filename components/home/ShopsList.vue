@@ -28,7 +28,7 @@
             v-img.rounded-lg(:src="require(`../../assets/home/shops/${item.src.toLowerCase()}.jpg`)" width="140" height="130")
             .pa-2
               p.secondary--text.font-weight-medium.mb-0 {{item.name}}
-              p.caption.darkGrey--text.font-weight-light.mb-0 {{$strLimit(item.address, 16)}}
+              p.caption.darkGrey--text.font-weight-light.mb-0 {{$strLimit(item.address, 14)}}
               span.caption.darkGrey--text.font-weight-light.mb-0.mt-0 {{item.distance}} km .
                 |
                 img(width="14" height="14" :src="require(`../../assets/home/star.jpg`)")
