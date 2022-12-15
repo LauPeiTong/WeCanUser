@@ -15,24 +15,30 @@
         @click=""
       )
   .scroll.ma-0.justify-top.align-center.full-width(:style="scrollSize" id="scroll-target" v-scroll:#scroll-target="onScroll")
-    //- v-img.absolute-position(height="220" :src="shopBackground")
-    //- v-row.pt-16
-    //-   v-col.pt-16.px-8.img-on-top.negative-margin.text-center(:cols="12")
-    //-     v-avatar(size="130" )
-    //-       v-img(:src="shopLogo" contain)
+    v-img.absolute-position(height="220")
+    v-row.pt-16
+      v-col.pt-16.px-8.img-on-top.negative-margin.text-center(:cols="12")
+        v-avatar(size="150" )
+          v-img(:src="foodImg")
 
-    //-   v-col.second-on-top.white(:cols="12")
-    //-     .shop.px-4
-    //-       v-row.mt-10
-    //-         v-col.pb-0
-    //-           p.font-weight-medium.text-h5.secondary--text {{ shop.name }}
-    //-         v-col.pb-0.text-right
-    //-           v-chip.subtitle-1(label :color="$vuetify.theme.themes.light.primary" text-color="white") Following
-    //-       p.mb-0.font-weight-regular.caption.darkGrey--text {{ shop.address }}
-    //-       p.font-weight-regular.caption.darkGrey--text {{ shop.distance }} km
-    //-         |
-    //-         a.text-decoration-underline.font-weight-regular.caption.pl-2 View details
-    //-     v-divider.mt-4.mx-4
+      v-col.second-on-top.white(:cols="12")
+        .food.px-4.pt-10
+          .text-right
+            v-chip.my-2.rounded-xl(outlined :color="$vuetify.theme.themes.light.primary") {{food.discount * 100}}% discount
+          v-card.py-2.px-3.rounded-lg(outlined)
+            v-row
+              v-col.pb-0(:cols="8")
+                p.font-weight-medium.text-h6.secondary--text.mb-0 {{ food.name }}
+                p.caption.darkGrey--text {{food.quantity}}
+              v-col.pb-0.text-right
+                p.font-weight-medium.text-h6.primary--text.mb-0 {{$formatCurrency($discountPrice(food.originalPrice, food.discount))}}
+                p.text-12.text-decoration-line-through.primary--text {{$formatCurrency(food.originalPrice)}}
+            v-divider.my-2
+            v-row.mb-2
+              v-col.pb-0(:cols="6")
+                p.font-weight-medium.secondary--text.mb-0 Expired date & time
+              v-col.pb-0.text-right.pt-4
+                p.font-weight-medium.success--text.mb-0 {{food.expiredDate}}
 
     //-     .choose.px-4
     //-       v-list.pa-0
@@ -105,11 +111,11 @@ export default {
       categories: 'home/getCategories',
       scrollSize: 'screen/getScrollYClass'
     }),
-    shopLogo () {
-      return require(`../assets/home/shops/${this.shop.src}.jpg`)
+    foodLogo () {
+      return require(`../assets/food/${this.food.src}.jpg`)
     },
-    shopBackground () {
-      return require(`../assets/home/shops/${this.shop.src}.jpg`)
+    foodImg () {
+      return require(`../assets/food/${this.food.src}.jpg`)
     }
   },
   mounted () {
@@ -128,7 +134,7 @@ export default {
       })
     },
     check () {
-      if (this.shop === null) {
+      if (this.food === null) {
         this.$router.push('/home')
       }
     },
@@ -190,14 +196,12 @@ export default {
 }
 
 .second-on-top {
-  border-radius: 30px 30px 0 0;
-  filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.25));
   z-index: 98;
 }
 
 .absolute-position {
-  filter: blur(7px);
-  background: rgba(39, 37, 37, 0.5);
+  border-radius: 0 0 60% 60%;
+  background: #FAAF08;
   position: absolute;
   width: 100%;
 }
@@ -208,5 +212,13 @@ export default {
 
 .text-decoration-underline {
   text-underline-offset: 3px;
+}
+
+.v-chip.v-chip--outlined.v-chip.v-chip {
+  background-color: white !important;
+  border-width: 2px;
+  font-weight: 500;
+  font-size: 13px;
+  height: 20px
 }
 </style>
