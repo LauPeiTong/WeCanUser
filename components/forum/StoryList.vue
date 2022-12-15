@@ -30,7 +30,7 @@
             offset-y="-5"
             :content="item.new"
           )
-          p.subtitle-2.line-height-0.pt-2.text-center {{item.name}}
+          p.subtitle-2.line-height-0.pt-2.text-center {{$strLimit(item.name, 16)}}
 
 </template>
 
@@ -50,12 +50,12 @@ export default {
   data () {
     return {
       story: [
-        { id: 1, name: 'Women Career', new: 150 },
-        { id: 2, name: 'Woreerrrr', new: 121 },
-        { id: 3, name: 'Powerful Mothers', new: 87 },
-        { id: 4, name: 'Finding Job Group', new: 45 },
-        { id: 5, name: 'Selangor Coder', new: 35 },
-        { id: 6, name: 'Penang Designer', new: 20 }
+        { id: 1, name: 'Food Protector', new: 150 },
+        { id: 2, name: 'Save Money Group', new: 121 },
+        { id: 3, name: 'I love discount', new: 87 },
+        { id: 4, name: 'Selangor Food', new: 45 },
+        { id: 5, name: 'Penang Discount Food', new: 35 },
+        { id: 6, name: 'Healthy Food Group', new: 20 }
       ],
       options: {
         responsive: [

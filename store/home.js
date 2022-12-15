@@ -72,7 +72,7 @@ export const getters = {
   getSelectedShop (state) {
     return state.selectedShop
   },
-  getSelectedFood (state) {
+  getSelectedfood (state) {
     return state.selectedFood
   },
   getShops (state) {

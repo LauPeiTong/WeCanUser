@@ -27,7 +27,7 @@ export default {
       tabs: [
         { id: 1, name: 'Post' },
         { id: 2, name: 'Popular' },
-        { id: 3, name: 'Announcement' },
+        { id: 3, name: 'Live' },
         { id: 4, name: 'Webinar' }
       ]
     }

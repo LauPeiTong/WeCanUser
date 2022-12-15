@@ -7,7 +7,7 @@
     eva-icon.pt-2.px-2(name="arrow-ios-downward-outline" :fill="this.$vuetify.theme.themes.light.brown")
   v-item-group.pt-4.pb-8
     template(v-for='item in posts')
-      v-row.d-flex.flex-column.px-4.pb-4.justify-center
+      v-row.d-flex.flex-column.px-4.pb-4.justify-center.mb-4
         v-card.rounded-xl.d-flex.flex-column.justify-start(
           @click=""
           :min-height="300"
@@ -26,7 +26,7 @@
             p.mb-0.pt-2.caption.font-weight-medium.text-h6.secondary--text {{ item.title }}
             v-row
               v-col
-                p.mb-0.font-weight-regular.subtitle-2.secondary--text.text-justify {{ item.content }}
+                p.mb-0.font-weight-regular.subtitle-2.secondary--text.text-justify {{ $strLimit(item.content, 300) }}
                 v-img(v-if="item.img" :src="img(item.img)" :style="getImgWidth")
           v-card-actions.px-4.pt-4
             v-row
@@ -63,27 +63,27 @@ export default {
       posts: [
         {
           id: 1,
-          title: 'Best way to find job?',
-          content: 'Grew up in a relatively poor environment in Chicago and my parents never really instilled sound financial values in me/prepared me for the expectations of fiscal life outside of “you need a degree for a good job and a good job for good money”.',
+          title: '15 way to save money on food',
+          content: 'When you start shopping for your own food at uni, one of the biggest shocks is just how expensive it can be – especially cheese, right? According to our yearly National Student Money Survey, students spend on average £116 a month on groceries alone – that\'s more cash than they spend on anything else apart from rent! When it comes to food shopping, students tend to fall into the same pitfalls over and over again. How many times have you bought a one-off meal from the Tesco Express around the corner instead of stocking up at a big-budget supermarket?',
           user: 'Emma',
           time: '5 mins',
-          group: 'Women Career'
+          group: 'Food Protector'
         },
         {
           id: 2,
-          title: 'Webinar: Schemes and Self Employment Opportunities for Women Entrepeneur',
-          img: 'webinar',
-          user: 'Miss Khoo',
+          title: 'Discount Food, Up to 50%',
+          img: 'discount',
+          user: 'Secret Recipe',
           time: '9 mins',
-          group: 'Woreerrrr'
+          group: 'Save Moeny Group'
         },
         {
           id: 3,
-          title: 'Why is it difficult to find a suitable job?',
-          content: 'There is really not a right or wrong answer to this question. I have been looking for a job for over a year. I think the interviews went well and then I get a robot email telling me thanks, but no thanks. There is really not a right or wrong answer to this question. ',
+          title: '10 Malaysia Day food promotions & specials you can’t miss',
+          content: 'One of the joys of being Malaysian next to being a melting pot of cultures or a world-renowned food haven, is the number of public holidays we have. And with Malaysia Day just around the corner, it’s the perfect time to take advantage of the holiday’s best dining promotions. In commemoration of the establishment of the Malaysian federation, we’ve curated a delicious list of our favourite franchises and restaurants that are having amazing discounts, offers and promotions right up to 16 September 2022. Happy Malaysia Day, fellow foodies!',
           user: 'Anna',
           time: '15 mins',
-          group: 'Powerful Mothers'
+          group: 'I love discount'
         }
 
       ]

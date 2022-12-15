@@ -1,9 +1,21 @@
 <template lang="pug">
 .fill-height.food-details-page.pa-0.ma-0.full-width(v-if="!!food")
-  //- shop-top.ma-0.on-top(@goBack="goBackToPreviousPage" :id="shop.id" v-if="offsetTop < 200")
-  //- shop-top.ma-0.on-top-200(@goBack="goBackToPreviousPage" :id="shop.id" :whiteBackground="true" v-else)
-
-  .scroll.ma-0.justify-top.align-center.full-width(:style="scrollSize" id="scroll-target" v-scroll:#scroll-target="onScroll")
+  v-row.on-top.pt-8.pb-6.pa-0.ma-0.primary(dense)
+    v-col.text-center(:cols="2")
+      w-icon(
+        :icon-name="'arrow-ios-back-outline'"
+        :icon-fill="'white'"
+        @click="goBackToPreviousPage()"
+      )
+    v-col.text-center(:cols="8")
+    v-col.text-center(:cols="2")
+      w-icon(
+        :icon-name="'heart-outline'"
+        :icon-fill="'white'"
+        :border="true"
+        @click=""
+      )
+  //- .scroll.ma-0.justify-top.align-center.full-width(:style="scrollSize" id="scroll-target" v-scroll:#scroll-target="onScroll")
     //- v-img.absolute-position(height="220" :src="shopBackground")
     //- v-row.pt-16
     //-   v-col.pt-16.px-8.img-on-top.negative-margin.text-center(:cols="12")
@@ -163,7 +175,9 @@ export default {
   top: 0;
   width: 100%;
   z-index: 100;
+  border-radius: 0 0 25px 25px;
 }
+
 .on-top-200 {
   position: absolute;
   top: 0;

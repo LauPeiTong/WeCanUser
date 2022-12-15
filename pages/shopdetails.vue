@@ -164,6 +164,7 @@ export default {
   width: 100%;
   z-index: 100;
 }
+
 .on-top-200 {
   position: absolute;
   top: 0;
