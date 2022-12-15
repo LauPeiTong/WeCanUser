@@ -9,9 +9,9 @@ v-app
 
 export default {
   name: 'WelcomeLayout',
-  data() {
+  data () {
     return {
     }
-  },
+  }
 }
 </script>
