@@ -1,5 +1,5 @@
 <template lang="pug">
-  v-btn.wecan-icon(icon :color="buttonColor" :width="width" :height="height" :to="to" :border="border" :class="borderClass")
+  v-btn.woreer-icon(icon :color="buttonColor" :width="width" :height="height" :to="to" :border="border" :class="borderClass")
     client-only
       eva-icon(:name="iconName" :fill="iconFill" @click="emitClick" :width="iconWidth" :height="iconHeight")
 </template>
@@ -92,7 +92,7 @@ export default {
   letter-spacing: -0.011em;
 }
 
-.wecan-icon-border {
+.woreer-icon-border {
   border: 2px solid white;
 }
 </style>

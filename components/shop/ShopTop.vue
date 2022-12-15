@@ -3,7 +3,7 @@
     v-col.text-center(:cols="2")
       w-icon(
         :icon-name="'arrow-ios-back-outline'"
-        :icon-fill="id === 4 || id === 5 || id === 7 ? $vuetify.theme.themes.light.darkGrey : 'white'"
+        :icon-fill="whiteBackground || id === 4 || id === 5 || id === 7 ? $vuetify.theme.themes.light.darkGrey : 'white'"
         @click="emitBack()"
       )
     v-col.text-center(:cols="7")
@@ -21,12 +21,12 @@
     v-col.text-right.pr-4(:cols="3")
       w-icon(
         :icon-name="'message-circle-outline'"
-        :icon-fill="id === 4 || id === 5 || id === 7 ? $vuetify.theme.themes.light.darkGrey : 'white'"
+        :icon-fill="whiteBackground || id === 4 || id === 5 || id === 7 ? $vuetify.theme.themes.light.darkGrey : 'white'"
         @click=""
       )
       w-icon(
         :icon-name="'more-vertical-outline'"
-        :icon-fill="id === 4 || id === 5 || id === 7 ? $vuetify.theme.themes.light.darkGrey : 'white'"
+        :icon-fill="whiteBackground || id === 4 || id === 5 || id === 7 ? $vuetify.theme.themes.light.darkGrey : 'white'"
         @click=""
       )
 
@@ -47,6 +47,10 @@ export default {
     id: {
       type: Number,
       default: 1
+    },
+    whiteBackground: {
+      type: Boolean,
+      default: false
     }
   },
   data () {

@@ -1,15 +1,17 @@
 <template lang="pug">
 .fill-height.shop-details-page.pa-0.ma-0.full-width(v-if="!!shop")
-  shop-top.ma-0.on-top(@goBack="goBackToPreviousPage" :id="shop.id")
-  .scroll.ma-0.justify-top.align-center.full-width(:style="scrollSize")
+  shop-top.ma-0.on-top(@goBack="goBackToPreviousPage" :id="shop.id" v-if="offsetTop < 200")
+  shop-top.ma-0.on-top-200(@goBack="goBackToPreviousPage" :id="shop.id" :whiteBackground="true" v-else)
+
+  .scroll.ma-0.justify-top.align-center.full-width(:style="scrollSize" id="scroll-target" v-scroll:#scroll-target="onScroll")
     v-img.absolute-position(height="220" :src="shopBackground")
     v-row.pt-16
       v-col.pt-16.px-8.img-on-top.negative-margin.text-center(:cols="12")
         v-avatar(size="130" )
           v-img(:src="shopLogo" contain)
 
-      v-col.px-8.second-on-top.white(:cols="12")
-        .shop
+      v-col.second-on-top.white(:cols="12")
+        .shop.px-4
           v-row.mt-10
             v-col.pb-0
               p.font-weight-medium.text-h5.secondary--text {{ shop.name }}
@@ -19,9 +21,9 @@
           p.font-weight-regular.caption.darkGrey--text {{ shop.distance }} km
             |
             a.text-decoration-underline.font-weight-regular.caption.pl-2 View details
-        v-divider.mt-4
+        v-divider.mt-4.mx-4
 
-        .choose
+        .choose.px-4
           v-list.pa-0
             v-list-item-group(:color="$vuetify.theme.themes.light.primary")
               .delivery
@@ -37,6 +39,7 @@
                 v-list-item-action
                   eva-icon(name="arrow-ios-forward" :fill="$vuetify.theme.themes.light.primary" height="30" width="30")
               v-divider
+
               .ratings
               v-list-item.px-0(value=-1  @click="showRatingsDialogue")
                 v-list-item-icon.mr-4.my-4
@@ -46,32 +49,15 @@
                   v-list-item-subtitle
                     |
                     img(width="13" height="12" :src="require(`../assets/home/star.jpg`)")
-                    |   {{shop.rating}} (212 Reviews)
+                    |   {{shop.rate}} (212 Reviews)
                 v-list-item-action
                   eva-icon(name="arrow-ios-forward" :fill="$vuetify.theme.themes.light.primary" height="30" width="30")
-        v-divider
+        v-divider.mx-4
 
-        //- .company
-          v-row.mt-4
-            v-col.py-0(:cols="7")
-              p.mb-0.font-weight-bold.text-h6.secondary--text {{ company.name }}
-            v-col.py-0.text-right
-              v-chip(
-                v-if="company.verified"
-                outlined
-                :color="$vuetify.theme.themes.light.success"
-              )
-                span Verified
-                eva-icon.pt-2.pl-1(v-if="company.verified" :fill="this.$vuetify.theme.themes.light.success" name="checkmark-outline" width="18" height="18")
-          p.mb-2.mt-3.font-weight-regular.subtile-1.secondary--text {{ company.location }}
-          v-row.px-3.mt-0
-            p.text-decoration-underline.mb-0.font-weight-regular.subtitle-1.darkGrey--text(@click="") View company details
-            eva-icon.pt-1.pl-1(:fill="this.$vuetify.theme.themes.light.darkGrey" name="arrow-forward-outline" width="20" height="20")
-        //- v-divider.mt-8
-
-        //- .job-overview
-          p.mt-4.mb-0.font-weight-bold.text-h6.secondary--text Job Overview
-          job-description.pt-2(:company="company")
+        .foods.pt-2.pb-8
+          food-list(:foods="foods" :title="'Recommended for you'" :color="'success'")
+          food-list.pt-4(:foods="discountFood(0.75)" :title="'75% discount'" :color="'danger'")
+          food-list.pt-4(:foods="discountFood(0.5)" :title="'50% discount'" :color="'primary'")
 
 </template>
 
@@ -82,6 +68,7 @@ import UpperTitle from '../components/UpperTitle.vue'
 import WIcon from '../components/componenets-custom/WIcon.vue'
 import JobDescription from '../components/home/JobDescription.vue'
 import ShopTop from '../components/shop/ShopTop.vue'
+import FoodList from '../components/shop/FoodList.vue'
 
 export default {
   name: 'ShopDetailsPage',
@@ -89,18 +76,21 @@ export default {
     UpperTitle,
     WIcon,
     JobDescription,
-    ShopTop
+    ShopTop,
+    FoodList
   },
   layout: 'welcome',
   data () {
     return {
-      search: null
+      search: null,
+      offsetTop: 0
     }
   },
 
   computed: {
     ...mapGetters({
       shop: 'home/getSelectedShop',
+      foods: 'home/getFood',
       categories: 'home/getCategories',
       scrollSize: 'screen/getScrollYClass'
     }),
@@ -121,10 +111,18 @@ export default {
     showRatingsDialogue () {
       console.log('rating')
     },
+    discountFood (discount) {
+      return this.foods.filter((food) => {
+        return food.discount === discount
+      })
+    },
     check () {
       if (this.shop === null) {
         this.$router.push('/home')
       }
+    },
+    onScroll (e) {
+      this.offsetTop = e.target.scrollTop
     },
     searchBy (newValue) {
       this.search = newValue
@@ -165,6 +163,13 @@ export default {
   top: 0;
   width: 100%;
   z-index: 100;
+}
+.on-top-200 {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  background-color: white;
 }
 
 .img-on-top {

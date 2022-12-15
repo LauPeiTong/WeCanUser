@@ -1,6 +1,7 @@
 export const state = () => ({
   selectedCategory: null,
   selectedShop: null,
+  selectedFood: null,
   selectedJob: null,
   categories: [
     { id: 1, name: 'All', new_job: 54 },
@@ -71,8 +72,14 @@ export const getters = {
   getSelectedShop (state) {
     return state.selectedShop
   },
+  getSelectedFood (state) {
+    return state.selectedFood
+  },
   getShops (state) {
     return state.shops
+  },
+  getFood (state) {
+    return state.foods
   },
   // job
   getRecommededJob (state) {
@@ -111,6 +118,9 @@ export const mutations = {
   },
   updateSelectedShop (state, shop) {
     state.selectedShop = shop
+  },
+  updateSelectedFood (state, food) {
+    state.selectedFood = food
   }
 }
 
@@ -123,5 +133,8 @@ export const actions = {
   },
   changeSelectedShop ({ commit, state }, shop) {
     commit('updateSelectedShop', shop)
+  },
+  changeSelectedFood ({ commit, state }, food) {
+    commit('updateSelectedFood', food)
   }
 }
