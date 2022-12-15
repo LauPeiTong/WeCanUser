@@ -1,7 +1,7 @@
 <template lang="pug">
 .fill-height.home-page.pa-0.ma-0
   v-row.pa-0.ma-0.upper-row
-    upper-title.ma-0(:icon="'heart-outline'" :title-class="'dark-background'" :border="true")
+    upper-title.ma-0(:icon="'heart'" :title-class="'dark-background'")
     w-search-bar.ma-0(@change="searchBy")
   .scroll.scrollbar-hide.ma-0.justify-top.align-center(:style="scrollSize")
     category-list.pb-4.pt-6

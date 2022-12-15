@@ -10,12 +10,11 @@
     v-col.text-center(:cols="8")
     v-col.text-center(:cols="2")
       w-icon(
-        :icon-name="'heart-outline'"
+        :icon-name="'heart'"
         :icon-fill="'white'"
-        :border="true"
         @click=""
       )
-  //- .scroll.ma-0.justify-top.align-center.full-width(:style="scrollSize" id="scroll-target" v-scroll:#scroll-target="onScroll")
+  .scroll.ma-0.justify-top.align-center.full-width(:style="scrollSize" id="scroll-target" v-scroll:#scroll-target="onScroll")
     //- v-img.absolute-position(height="220" :src="shopBackground")
     //- v-row.pt-16
     //-   v-col.pt-16.px-8.img-on-top.negative-margin.text-center(:cols="12")

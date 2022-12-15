@@ -57,4 +57,8 @@ export default {
   min-width: 0px !important;
   flex: 0px;
 }
+
+.v-tab {
+  text-transform: none !important;
+}
 </style>

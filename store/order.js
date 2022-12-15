@@ -1,11 +1,15 @@
 export const state = () => ({
   selectedTime: 'Now',
-  orders: []
+  orders: [
+    { id: 1, name: 'MyNews', subtitle: 'MyNews is preparing your food', src: 'mynews', amount: '1320', status: 'Processing' },
+    { id: 2, name: 'Aeon', subtitle: 'Deliver now (40 mins)', src: 'aeon', amount: '2700', status: 'Out for delivery' },
+    { id: 3, name: 'BananaBro', subtitle: 'Yesterday, 9.00pm', src: 'bananabro', amount: '1150', status: 'Completed' }
+  ]
 })
 
 export const getters = {
-  getCurrentPath (state) {
-    return state.currentPath
+  getOrders (state) {
+    return state.orders
   }
 }
 

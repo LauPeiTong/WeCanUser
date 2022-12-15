@@ -4,7 +4,7 @@
     v-col.pa-0.ma-0
       p.text-h6.font-weight-medium.pt-4.mb-0 Items recommended for you
     v-col.pa-0.ma-0.d-flex(:cols="3")
-      v-row.pt-4.mb-1.pr-0.align-end.justify-end(@click="viewAllCategories()")
+      v-row.pt-4.mb-1.pr-0.align-end.justify-end(@click="")
         p.mb-0.primary--text View all
         w-icon.pt-1(
           :height="26"
