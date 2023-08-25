@@ -9,7 +9,7 @@
     v-carousel-item(
       v-for="item in ads"
       :key="item.id"
-      :src="item.src"
+      :src="require(`../../assets/home/ads${item.id}.png`)"
       :style="scrollSize"
     )
 </template>
@@ -26,8 +26,8 @@ export default {
   data () {
     return {
       ads: [
-        { id: 1, src: require('../../assets/home/ads1.png') },
-        { id: 2, src: require('../../assets/home/ads2.png') }
+        { id: 1 },
+        { id: 2 }
       ]
     }
   },
