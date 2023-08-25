@@ -16,7 +16,7 @@
 
   v-row.pl-4.mx-0.scroll-x.text-left(:style="scrollSize")
     vue-horizontal-list(
-      :items="shops"
+      :items="nearByRestaurants"
       :options="options"
     )
       template(v-slot:default="{item}")
@@ -25,14 +25,14 @@
             @click="goToShopPage(item)"
             outlined
           )
-            v-img.rounded-lg(:src="require(`../../assets/home/shops/${item.src.toLowerCase()}.jpg`)" width="140" height="130")
+            v-img.rounded-lg(:src="item.hero_listing_image" width="140" height="130")
             .pa-2
-              p.secondary--text.font-weight-medium.mb-0 {{item.name}}
-              p.caption.darkGrey--text.font-weight-light.mb-0 {{$strLimit(item.address, 14)}}
+              p.secondary--text.font-weight-medium.mb-0 {{$strLimit(item.name, 18)}}
+              p.caption.darkGrey--text.font-weight-light.mb-0 {{$strLimit(item.city.name, 14)}}
               span.caption.darkGrey--text.font-weight-light.mb-0.mt-0 {{item.distance}} km .
                 |
                 img(width="14" height="14" :src="require(`../../assets/home/star.jpg`)")
-                |   {{item.rate}}
+                |   {{item.rating}}
 
 </template>
 
@@ -68,6 +68,7 @@ export default {
   computed: {
     ...mapGetters({
       shops: 'home/getNearShops',
+      nearByRestaurants: 'home/getNearByRestaurants',
       scrollSize: 'screen/getScrollXClass'
     })
   },

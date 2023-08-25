@@ -8,12 +8,12 @@
     v-row.pt-16
       v-col.pt-16.px-8.img-on-top.negative-margin.text-center(:cols="12")
         v-avatar(size="130" )
-          v-img(:src="shopLogo" contain)
+          v-img(:src="shopLogo")
 
       v-col.second-on-top.white(:cols="12")
         .shop.px-4
           v-row.mt-10
-            v-col.pb-0
+            v-col.pb-0(:cols="8")
               p.font-weight-medium.text-h5.secondary--text {{ shop.name }}
             v-col.pb-0.text-right
               v-chip.subtitle-1(label :color="$vuetify.theme.themes.light.primary" text-color="white") Following
@@ -32,10 +32,10 @@
                   eva-icon(name="cube" :fill="$vuetify.theme.themes.light.primary" height="30" width="30")
                 v-list-item-content
                   v-list-item-title.secondary--text Delivery now
-                  v-list-item-subtitle {{shop.duration}} mins .
+                  v-list-item-subtitle {{shop.delivery_duration_range.lower_limit_in_minutes}} mins .
                     |
                     img.mx-1(width="13" height="12" :src="require(`../assets/home/motorcycle.jpg`)")
-                    |   {{$formatCurrency(shop.deliveryFee)}}
+                    |   {{$formatCurrency(300)}}
                 v-list-item-action
                   eva-icon(name="arrow-ios-forward" :fill="$vuetify.theme.themes.light.primary" height="30" width="30")
               v-divider
@@ -49,15 +49,16 @@
                   v-list-item-subtitle
                     |
                     img(width="13" height="12" :src="require(`../assets/home/star.jpg`)")
-                    |   {{shop.rate}} (212 Reviews)
+                    |   {{shop.rating}} (212 Reviews)
                 v-list-item-action
                   eva-icon(name="arrow-ios-forward" :fill="$vuetify.theme.themes.light.primary" height="30" width="30")
         v-divider.mx-4
 
-        .foods.pt-2.pb-8
-          food-list(:foods="foods" :title="'Recommended for you'" :color="'success'")
-          food-list.pt-4(:foods="discountFood(0.75)" :title="'75% discount'" :color="'danger'")
-          food-list.pt-4(:foods="discountFood(0.5)" :title="'50% discount'" :color="'primary'")
+        .foods.pb-8
+          template(v-for='food in foods')
+            food-list.pt-4(:foods="food.products" :title="food.name" :color="'success'")
+          //- food-list.pt-4(:foods="discountFood(0.75)" :title="'75% discount'" :color="'danger'")
+          //- food-list.pt-4(:foods="discountFood(0.5)" :title="'50% discount'" :color="'primary'")
 
 </template>
 
@@ -90,15 +91,15 @@ export default {
   computed: {
     ...mapGetters({
       shop: 'home/getSelectedShop',
-      foods: 'home/getFood',
+      foods: 'home/getFoods',
       categories: 'home/getCategories',
       scrollSize: 'screen/getScrollYClass'
     }),
     shopLogo () {
-      return require(`../assets/home/shops/${this.shop.src}.jpg`)
+      return this.shop.hero_listing_image
     },
     shopBackground () {
-      return require(`../assets/home/shops/${this.shop.src}.jpg`)
+      return this.shop.hero_image
     }
   },
   mounted () {

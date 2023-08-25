@@ -25,15 +25,15 @@
             @click=""
             outlined
           )
-            v-img.rounded-xl.mx-auto.align-end.text-right(:src="require(`../../assets/food/${item.src.toLowerCase()}.jpg`)" width="140")
-              v-chip.ma-2.rounded-xl(outlined :color="$vuetify.theme.themes.light.primary") {{item.discount * 100}}%
+            v-img.rounded-xl.mx-auto.align-end.text-right(:src="item.file_path" width="140")
+              v-chip.ma-2.rounded-xl(outlined :color="$vuetify.theme.themes.light.primary") {{0.5 * 100}}%
             .px-4.py-2
-              p.secondary--text.font-weight-medium.mb-0 {{$strLimit(item.name, 16)}}
-              p.caption.darkGrey--text.font-weight-light.mb-0 {{item.quantity}}
-              p.caption.darkGrey--text.font-weight-light.mb-1 {{getShopName(item.shop)}}
-              span.tertiary--text.font-weight-regular.mb-0 {{$formatCurrency($discountPrice(item.originalPrice, item.discount))}}
+              p.secondary--text.font-weight-medium.mb-0 {{$strLimit(item.name, 14)}}
+              //- p.caption.darkGrey--text.font-weight-light.mb-0 5
+              p.caption.darkGrey--text.font-weight-light.mb-1 Restoran Al Sarifa
+              span.tertiary--text.font-weight-regular.mb-0 {{$formatCurrency($discountPrice(item.product_variations[0].price*100, 0.5))}}
                 |
-                span.pl-1.text-12.text-decoration-line-through {{$formatCurrency(item.originalPrice)}}
+                span.pl-1.text-12.text-decoration-line-through {{$formatCurrency(item.product_variations[0].price*100)}}
 
 </template>
 

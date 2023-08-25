@@ -14,67 +14,51 @@
         :icon-fill="'white'"
         @click=""
       )
+
   .scroll.ma-0.justify-top.align-center.full-width(:style="scrollSize" id="scroll-target" v-scroll:#scroll-target="onScroll")
     v-img.absolute-position(height="220")
     v-row.pt-16
       v-col.pt-16.px-8.img-on-top.negative-margin.text-center(:cols="12")
         v-avatar(size="150" )
-          v-img(:src="foodImg")
+          v-img.white(:src="require(`../assets/food/noitem.png`)" v-if="food.file_path == ''")
+          v-img(:src="food.file_path" v-else)
 
       v-col.second-on-top.white(:cols="12")
         .food.px-4.pt-10
           .text-right
-            v-chip.my-2.rounded-xl(outlined :color="$vuetify.theme.themes.light.primary") {{food.discount * 100}}% discount
+            v-chip.my-2.rounded-xl(outlined :color="$vuetify.theme.themes.light.primary") {{0.5 * 100}}% discount
+          //- Food
           v-card.py-2.px-3.rounded-lg(outlined)
             v-row
               v-col.pb-0(:cols="8")
                 p.font-weight-medium.text-h6.secondary--text.mb-0 {{ food.name }}
-                p.caption.darkGrey--text {{food.quantity}}
+                p.caption.darkGrey--text {{10}} left
               v-col.pb-0.text-right
-                p.font-weight-medium.text-h6.primary--text.mb-0 {{$formatCurrency($discountPrice(food.originalPrice, food.discount))}}
-                p.text-12.text-decoration-line-through.primary--text {{$formatCurrency(food.originalPrice)}}
+                p.font-weight-medium.text-h6.primary--text.mb-0 {{$formatCurrency($discountPrice(food.product_variations[0].price*100, 0.5))}}
+                p.text-12.text-decoration-line-through.primary--text {{$formatCurrency(food.product_variations[0].price*100)}}
             v-divider.my-2
             v-row.mb-2
               v-col.pb-0(:cols="6")
                 p.font-weight-medium.secondary--text.mb-0 Expired date & time
               v-col.pb-0.text-right.pt-4
-                p.font-weight-medium.success--text.mb-0 {{food.expiredDate}}
+                p.font-weight-medium.success--text.mb-0 Today, 11:00PM
 
-    //-     .choose.px-4
-    //-       v-list.pa-0
-    //-         v-list-item-group(:color="$vuetify.theme.themes.light.primary")
-    //-           .delivery
-    //-           v-list-item.px-0(value=1 @click="showTimeDialogue")
-    //-             v-list-item-icon.mr-4.my-4
-    //-               eva-icon(name="cube" :fill="$vuetify.theme.themes.light.primary" height="30" width="30")
-    //-             v-list-item-content
-    //-               v-list-item-title.secondary--text Delivery now
-    //-               v-list-item-subtitle {{shop.duration}} mins .
-    //-                 |
-    //-                 img.mx-1(width="13" height="12" :src="require(`../assets/home/motorcycle.jpg`)")
-    //-                 |   {{$formatCurrency(shop.deliveryFee)}}
-    //-             v-list-item-action
-    //-               eva-icon(name="arrow-ios-forward" :fill="$vuetify.theme.themes.light.primary" height="30" width="30")
-    //-           v-divider
+          //- Details
+          .py-2.rounded-lg(outlined)
+            v-list
+              v-list-group.bottom-gray(v-for="d in description"
+                :key="d.title"
+                v-model="d.active"
+                no-action
+              )
+                template(v-slot:activator)
+                  v-list-item-content
+                    v-list-item-title(v-text="d.title")
 
-    //-           .ratings
-    //-           v-list-item.px-0(value=-1  @click="showRatingsDialogue")
-    //-             v-list-item-icon.mr-4.my-4
-    //-               eva-icon(name="star" :fill="$vuetify.theme.themes.light.primary" height="30" width="30")
-    //-             v-list-item-content
-    //-               v-list-item-title.secondary--text Ratings
-    //-               v-list-item-subtitle
-    //-                 |
-    //-                 img(width="13" height="12" :src="require(`../assets/home/star.jpg`)")
-    //-                 |   {{shop.rate}} (212 Reviews)
-    //-             v-list-item-action
-    //-               eva-icon(name="arrow-ios-forward" :fill="$vuetify.theme.themes.light.primary" height="30" width="30")
-    //-     v-divider.mx-4
-
-    //-     .foods.pt-2.pb-8
-    //-       food-list(:foods="foods" :title="'Recommended for you'" :color="'success'")
-    //-       food-list.pt-4(:foods="discountFood(0.75)" :title="'75% discount'" :color="'danger'")
-    //-       food-list.pt-4(:foods="discountFood(0.5)" :title="'50% discount'" :color="'primary'")
+                v-list-item.px-4
+                  v-list-item-content
+                    pre.mb-0(v-if="d.nextline" style="font-family: Arial; font-size: 16px; line-height: 1.4;") {{d.details}}
+                    p.mb-0(v-else) {{food.name + d.details}}
 
 </template>
 
@@ -100,14 +84,30 @@ export default {
   data () {
     return {
       search: null,
-      offsetTop: 0
+      offsetTop: 0,
+      description: [
+        {
+          action: 'mdi-silverware-fork-knife',
+          active: true,
+          details: ' are nutritious. It may be good for weight loss. Tomatoes may be good for your heart. As part of a healtful and varied diet.',
+          title: 'Product details',
+          nextline: false
+        },
+        {
+          action: 'mdi-silverware-fork-knife',
+          active: false,
+          details: 'Calories: 261-593 kcal \nTotal fat: 13-21.4g\nSaturated fat: 7.6 g\nCarbohydrates: 29-81.4 g\nProtein: 12-18.6 g\nSodium: 838 mg\nCholesterol: 76 mg',
+          nextline: true,
+          title: 'Nutritions'
+        }
+      ]
     }
   },
 
   computed: {
     ...mapGetters({
       food: 'home/getSelectedfood',
-      foods: 'home/getFood',
+      foods: 'home/getFoods',
       categories: 'home/getCategories',
       scrollSize: 'screen/getScrollYClass'
     }),
@@ -220,5 +220,9 @@ export default {
   font-weight: 500;
   font-size: 13px;
   height: 20px
+}
+
+.bottom-gray {
+  border-bottom: 1px solid lightgray;
 }
 </style>

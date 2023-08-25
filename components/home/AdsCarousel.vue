@@ -26,8 +26,8 @@ export default {
   data () {
     return {
       ads: [
-        { id: 1, src: require('../../assets/home/ads/ads1.png') },
-        { id: 2, src: require('../../assets/home/ads/ads2.png') }
+        { id: 1, src: require('../../assets/home/ads1.png') },
+        { id: 2, src: require('../../assets/home/ads2.png') }
       ]
     }
   },

@@ -8,7 +8,7 @@
     ads-carousel.pt-4
     shops-list.pb-4
     item-list.pb-4
-    shop-vertical-list.px-4.pb-4(:items="shops" :title="'Shops recommeded for you'")
+    shop-vertical-list.px-4.pb-4(:items="recommendedShops" :title="'Shops recommeded for you'")
 </template>
 
 <script>
@@ -43,7 +43,7 @@ export default {
     ...mapGetters({
       scrollSize: 'screen/getScrollClass',
       shops: 'home/getShops',
-      recommendedJob: 'home/getRecommededJob'
+      recommendedShops: 'home/getRecommendedShops'
     })
   },
   methods: {

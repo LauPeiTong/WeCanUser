@@ -5,27 +5,28 @@
     template(v-for='item in items')
       v-row.d-flex.flex-column.px-4.pb-4.justify-center
         v-card.rounded-lg(
-            @click=""
+            @click="goToShopPage(item)"
             outlined
             height="135"
           )
             v-row
               v-col(:cols="5")
-                v-img.rounded-lg.ma-3(:src="require(`../../assets/home/shops/${item.src.toLowerCase()}.jpg`)" width="110" height="110")
+                v-img.rounded-lg.ma-3(:src="require(`../../assets/food/noitem.png`)" width="110" height="110" v-if="item.hero_image == ''")
+                v-img.rounded-lg.ma-3(:src="item.hero_image" width="110" height="110" v-else)
               v-col.py-2.pl-0.d-flex.flex-column(:cols="7")
-                p.secondary--text.font-weight-medium.mb-0.pt-4 {{item.name}}
-                p.caption.darkGrey--text.font-weight-light.mb-0 {{item.address}}
+                p.secondary--text.font-weight-medium.mb-0.pt-4 {{$strLimit(item.name, 20)}}
+                p.caption.darkGrey--text.font-weight-light.mb-0 {{item.city.name}}
                 p.caption.darkGrey--text.font-weight-light.mb-0.mt-0 {{item.distance}} km .
                   |
                   img.ml-1(width="14" height="14" :src="require(`../../assets/home/star.jpg`)")
-                  |   {{item.rate}}
-                p.caption.darkGrey--text.font-weight-light.mb-0.mt-0 {{item.duration}} mins .
+                  |   {{item.rating}}
+                p.caption.darkGrey--text.font-weight-light.mb-0.mt-0 {{item.delivery_duration_range.lower_limit_in_minutes}} mins .
                   |
                   img.mx-1(width="13" height="12" :src="require(`../../assets/home/motorcycle.jpg`)")
-                  |   {{$formatCurrency(item.deliveryFee)}}
+                  |   {{$formatCurrency(300)}}
                 v-row.d-flex.flex-row.mb-4.pl-2
-                  template(v-for='tag in item.tags')
-                    v-chip.mt-auto.mr-2.rounded-xl(outlined :color="$vuetify.theme.themes.light.primary") {{tag}}
+                  template(v-for='tag in item.food_characteristics')
+                    v-chip.mt-auto.mr-2.rounded-xl(outlined :color="$vuetify.theme.themes.light.primary") {{tag.name}}
 
 </template>
 
@@ -59,13 +60,13 @@ export default {
   computed: {
     ...mapGetters({
       widthX: 'screen/getWidthClass',
-      shops: 'home/getShops',
+      shops: 'home/getRecommendedShops',
       categories: 'home/getCategories'
     })
   },
   methods: {
     ...mapActions({
-      changeSelectedJob: 'home/changeSelectedJob'
+      changeSelectedShop: 'home/changeSelectedShop'
     }),
     getCompany (id) {
       return this.companies.find((company) => {
@@ -82,6 +83,10 @@ export default {
     goToJobDetailsPage (item) {
       this.changeSelectedJob(item)
       this.$router.push('/jobdetails')
+    },
+    goToShopPage (item) {
+      this.changeSelectedShop(item)
+      this.$router.push('/shopdetails')
     }
   }
 }
