@@ -38,7 +38,6 @@ export default {
   components: {
     UpperTitle,
     WSearchBar,
-    AdsCarousel,
     ShopsList,
     ItemList,
     CategoryList,
