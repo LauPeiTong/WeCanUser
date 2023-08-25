@@ -5,7 +5,19 @@
     w-search-bar.ma-0(@change="searchBy")
   .scroll.scrollbar-hide.ma-0.justify-top.align-center(:style="scrollSize")
     category-list.pb-4.pt-6
-    ads-carousel.pt-4
+    .ads-carousel.pt-4
+      v-carousel(
+        cycle
+        height="150"
+        hide-delimiter-background
+        show-arrows-on-hover
+      )
+        v-carousel-item(
+          v-for="item in ads"
+          :key="item.id"
+          :src="require(`../assets/home/ads${item.id}.png`)"
+          :style="scrollXSize"
+        )
     shops-list.pb-4
     item-list.pb-4
     shop-vertical-list.px-4.pb-4(:items="recommendedShops" :title="'Shops recommeded for you'")
@@ -16,7 +28,6 @@ import { mapGetters } from 'vuex'
 
 import UpperTitle from '../components/UpperTitle.vue'
 import WSearchBar from '../components/componenets-custom/WSearchBar.vue'
-import AdsCarousel from '../components/home/AdsCarousel.vue'
 import ShopsList from '../components/home/ShopsList.vue'
 import ItemList from '../components/home/ItemList.vue'
 import CategoryList from '../components/home/CategoryList.vue'
@@ -36,14 +47,19 @@ export default {
   layout: 'default',
   data () {
     return {
-      search: null
+      search: null,
+      ads: [
+        { id: 1 },
+        { id: 2 }
+      ]
     }
   },
   computed: {
     ...mapGetters({
       scrollSize: 'screen/getScrollClass',
       shops: 'home/getShops',
-      recommendedShops: 'home/getRecommendedShops'
+      recommendedShops: 'home/getRecommendedShops',
+      scrollXSize: 'screen/getScrollXClass'
     })
   },
   methods: {
