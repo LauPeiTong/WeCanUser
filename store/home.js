@@ -1,5 +1,5 @@
-import restaurants from '~/assets/data/restaurants_gombak.json'
-import menu from '~/assets/data/info_menu_gombak.json'
+import restaurants from '~/assets/data/restaurants.json'
+import menu from '~/assets/data/info_menu.json'
 
 export const state = () => ({
   selectedCategory: null,
@@ -48,8 +48,8 @@ export const getters = {
   },
   getRecommendedShops (state) {
     const r = state.recommendations.find((r) => {
-      return r.headline === 'Popular Shops - 1'
-      // return r.headline === 'panda pick | only on foodpanda'
+      // return r.headline === 'Popular Shops - 1'
+      return r.headline === 'panda pick | only on foodpanda'
     })
 
     return r.vendors
@@ -58,8 +58,8 @@ export const getters = {
     return state.shops
   },
   getRecommendedFoods (state) {
-    // const f = state.foods[34]
-    const f = state.foods[20]
+    const f = state.foods[34]
+    // const f = state.foods[20]
     return f.menus[0].menu_categories[0].products
   },
   getSelectedShop (state) {
