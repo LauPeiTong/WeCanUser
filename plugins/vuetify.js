@@ -13,6 +13,7 @@ export default new Vuetify({
         lightGrey: '#C1C1C1',
         warning: '#EB7100', // red
         success: '#009966', // green
+        green: '#61A498',
         brown: '#918679'
       }
     }

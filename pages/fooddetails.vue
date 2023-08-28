@@ -60,13 +60,35 @@
                     pre.mb-0(v-if="d.nextline" style="font-family: Arial; font-size: 16px; line-height: 1.4;") {{d.details}}
                     p.mb-0(v-else) {{food.name + d.details}}
 
+    v-footer.white.rounded-t-xl(absolute elevation="4")
+      v-col(class="text-center" cols="6")
+        v-card.quantity-card.my-2.rounded-xl(outlined)
+          v-row.align-center.py-1
+            v-col.px-0.text-right
+              v-btn(icon @click="changeQuantity(-1)" :disabled="quantity <= 1")
+                eva-icon.pt-1(name="minus-outline" :fill="$vuetify.theme.themes.light.darkGrey")
+            v-col.text-center.px-0
+              span.font-weight-medium {{quantity}}
+            v-col.px-0.text-left
+              v-btn(icon @click="changeQuantity(1)")
+                eva-icon.pt-1(name="plus-outline" :fill="$vuetify.theme.themes.light.success")
+      v-col(class="text-center" cols="6")
+        w-button.bottom-nav--button(
+          :label="'Add to Cart'"
+          block
+          dark
+          :color="$vuetify.theme.themes.light.primary"
+          @click="addToCart"
+        )
+
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 
 import UpperTitle from '../components/UpperTitle.vue'
 import WIcon from '../components/componenets-custom/WIcon.vue'
+import WButton from '../components/componenets-custom/WButton.vue'
 import JobDescription from '../components/home/JobDescription.vue'
 import ShopTop from '../components/shop/ShopTop.vue'
 import FoodList from '../components/shop/FoodList.vue'
@@ -76,6 +98,7 @@ export default {
   components: {
     UpperTitle,
     WIcon,
+    WButton,
     JobDescription,
     ShopTop,
     FoodList
@@ -85,6 +108,7 @@ export default {
     return {
       search: null,
       offsetTop: 0,
+      quantity: 1,
       description: [
         {
           action: 'mdi-silverware-fork-knife',
@@ -103,7 +127,6 @@ export default {
       ]
     }
   },
-
   computed: {
     ...mapGetters({
       food: 'home/getSelectedfood',
@@ -122,17 +145,9 @@ export default {
     this.check()
   },
   methods: {
-    showTimeDialogue () {
-      console.log('time')
-    },
-    showRatingsDialogue () {
-      console.log('rating')
-    },
-    discountFood (discount) {
-      return this.foods.filter((food) => {
-        return food.discount === discount
-      })
-    },
+    ...mapActions({
+      addCartItem: 'cart/addCartItem'
+    }),
     check () {
       if (this.food === null) {
         this.$router.push('/home')
@@ -147,19 +162,18 @@ export default {
     goBackToPreviousPage () {
       this.$router.go(-1)
     },
-    getTag (cid) {
-      for (let i = 1; i <= this.categories.length; i++) {
-        if (i === cid[0]) {
-          return this.categories[i - 1].name
-        }
-      }
+    changeQuantity (num) {
+      this.quantity += num
+      console.log(this.quantity)
     },
-    getTag2 (cid) {
-      for (let i = 1; i <= this.categories.length; i++) {
-        if (i === cid[1]) {
-          return this.categories[i - 1].name
-        }
+    addToCart () {
+      const cartItem = {
+        item: this.food,
+        quantity: this.quantity
       }
+      console.log(cartItem)
+      this.addCartItem(cartItem)
+      this.$router.push('/shopdetails')
     }
   }
 }
@@ -224,5 +238,13 @@ export default {
 
 .bottom-gray {
   border-bottom: 1px solid lightgray;
+}
+
+.quantity-card {
+  border: 2px solid #FAAF08;
+}
+
+.v-footer {
+  z-index: 100 !important;
 }
 </style>

@@ -35,9 +35,9 @@ export default {
           iconFill: 'home'
         },
         {
-          label: 'Activity',
-          path: '/activity',
-          name: 'activity',
+          label: 'Tracker',
+          path: '/tracker',
+          name: 'tracker',
           icon: 'file-text-outline',
           iconFill: 'file-text'
         },

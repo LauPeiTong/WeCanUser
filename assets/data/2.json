@@ -1,0 +1,2095 @@
+[
+    {
+        "headline": "Your favourite cuisines",
+        "sub_headline": "",
+        "ranking": 1,
+        "content_type": "Filter",
+        "sorting_strategy": "None",
+        "template": "[DONT TOUCH] Cuisines filters",
+        "layout": "Horizontal",
+        "min_items": 1,
+        "min_inventory": 1,
+        "products": [],
+        "vendors": [],
+        "filters": [
+            {
+                "id": "64",
+                "title": "Burgers",
+                "count": 32,
+                "type": "cuisine"
+            },
+            {
+                "id": "52",
+                "title": "Pizza",
+                "count": 7,
+                "type": "cuisine"
+            },
+            {
+                "id": "68",
+                "title": "Beverages",
+                "count": 227,
+                "type": "cuisine"
+            },
+            {
+                "id": "63",
+                "title": "Desserts",
+                "count": 112,
+                "type": "cuisine"
+            },
+            {
+                "id": "56",
+                "title": "Cakes",
+                "count": 32,
+                "type": "cuisine"
+            },
+            {
+                "id": "65",
+                "title": "Fast Food",
+                "count": 22,
+                "type": "cuisine"
+            },
+            {
+                "id": "1105",
+                "title": "Satay",
+                "count": 10,
+                "type": "cuisine"
+            },
+            {
+                "id": "67",
+                "title": "Sushi",
+                "count": 6,
+                "type": "cuisine"
+            },
+            {
+                "id": "1106",
+                "title": "Nasi Lemak",
+                "count": 42,
+                "type": "cuisine"
+            },
+            {
+                "id": "1107",
+                "title": "Tea",
+                "count": 6,
+                "type": "cuisine"
+            },
+            {
+                "id": "105",
+                "title": "Shawarma",
+                "count": 1,
+                "type": "cuisine"
+            },
+            {
+                "id": "130",
+                "title": "Western",
+                "count": 69,
+                "type": "cuisine"
+            },
+            {
+                "id": "82",
+                "title": "Pasta",
+                "count": 22,
+                "type": "cuisine"
+            },
+            {
+                "id": "1126",
+                "title": "Roti Canai",
+                "count": 24,
+                "type": "cuisine"
+            },
+            {
+                "id": "1114",
+                "title": "Nasi Kandar",
+                "count": 1,
+                "type": "cuisine"
+            },
+            {
+                "id": "1123",
+                "title": "Chicken Chop",
+                "count": 7,
+                "type": "cuisine"
+            },
+            {
+                "id": "1121",
+                "title": "Ayam Penyet",
+                "count": 10,
+                "type": "cuisine"
+            },
+            {
+                "id": "79",
+                "title": "Chicken",
+                "count": 198,
+                "type": "cuisine"
+            },
+            {
+                "id": "1125",
+                "title": "Takoyaki",
+                "count": 2,
+                "type": "cuisine"
+            },
+            {
+                "id": "47",
+                "title": "Coffee",
+                "count": 8,
+                "type": "cuisine"
+            }
+        ],
+        "custom_strategy": "Cuisines",
+        "failed_restaurants": [],
+        "disco_meta": {
+            "reco_config": {
+                "flags": []
+            },
+            "traces": []
+        },
+        "meta": {},
+        "total_vendors": 0,
+        "traces": [],
+        "recommendation_strategy": "4e80b810-fdab-42c6-9c85-f9ba2df11eeb",
+        "exclude_closed_restaurants": true
+    },
+    {
+        "headline": "Delivery fees below RM1.99",
+        "sub_headline": "",
+        "ranking": 2,
+        "content_type": "Vendor",
+        "sorting_strategy": "None",
+        "template": "",
+        "layout": "Horizontal",
+        "min_items": 5,
+        "min_inventory": 1,
+        "products": [],
+        "vendors": [
+            {
+                "id": 38616,
+                "code": "r4rv",
+                "accepts_instructions": true,
+                "address": "No.24, Jalan 2/12, Bandar Baru Selayang, Batu Cave",
+                "address_line2": "",
+                "budget": 1,
+                "chain": {
+                    "code": "cw5qn",
+                    "name": "Restoran Al-Bidayah",
+                    "main_vendor_code": "dn6a",
+                    "url_key": "restoran-al-bidayah-cw5qn"
+                },
+                "city": {
+                    "name": "Selayang"
+                },
+                "cuisines": [
+                    {
+                        "id": 88,
+                        "name": "Noodles",
+                        "url_key": "noodles",
+                        "main": false
+                    },
+                    {
+                        "id": 102,
+                        "name": "Rice Dishes",
+                        "url_key": "rice-dishes",
+                        "main": false
+                    },
+                    {
+                        "id": 1126,
+                        "name": "Roti Canai",
+                        "url_key": "roti-canai",
+                        "main": true
+                    },
+                    {
+                        "id": 119,
+                        "name": "Malaysian",
+                        "url_key": "malaysian",
+                        "main": false
+                    },
+                    {
+                        "id": 54,
+                        "name": "Asian",
+                        "url_key": "asian",
+                        "main": false
+                    }
+                ],
+                "custom_location_url": "",
+                "customer_type": "all",
+                "delivery_box": "",
+                "delivery_fee_type": "amount",
+                "description": "",
+                "distance": 0.62,
+                "food_characteristics": [],
+                "has_delivery_provider": true,
+                "hero_image": "https://images.deliveryhero.io/image/fd-my/LH/r4rv-hero.jpg",
+                "hero_listing_image": "https://images.deliveryhero.io/image/fd-my/LH/r4rv-listing.jpg",
+                "is_new_until": "2020-03-11T00:00:00Z",
+                "premium_position": 0,
+                "latitude": 3.2570252,
+                "logo": "",
+                "longitude": 101.65765395,
+                "loyalty_percentage_amount": 0.0,
+                "loyalty_program_enabled": false,
+                "maximum_express_order_amount": 0,
+                "metadata": {
+                    "has_discount": false,
+                    "timezone": "Asia/Kuala_Lumpur",
+                    "close_reasons": [],
+                    "available_in": null,
+                    "events": [
+                        {
+                            "id": "my_7567",
+                            "name": "",
+                            "messages": [
+                                "Get meals delivered now for as low as RM0.99, exclusively in your area. Order now!"
+                            ],
+                            "actions": [
+                                {
+                                    "type": "message",
+                                    "message": "Get meals delivered now for as low as RM0.99, exclusively in your area. Order now!"
+                                }
+                            ],
+                            "tags": {}
+                        }
+                    ],
+                    "is_delivery_available": true,
+                    "is_pickup_available": true,
+                    "is_dine_in_available": false,
+                    "is_express_delivery_available": false,
+                    "is_temporary_closed": false,
+                    "is_flood_feature_closed": false
+                },
+                "minimum_delivery_fee": 0.0,
+                "minimum_delivery_time": 50.0,
+                "delivery_duration_range": {
+                    "lower_limit_in_minutes": 45,
+                    "upper_limit_in_minutes": 65
+                },
+                "minimum_order_amount": 5.0,
+                "minimum_pickup_time": 15.0,
+                "name": "Restoran Al-Bidayah (Selayang)",
+                "payment_types": [],
+                "post_code": "68100",
+                "primary_cuisine_id": 1126,
+                "rating": 4.7,
+                "redirection_url": "https://foodpanda.my/restaurant/r4rv/restoran-al-bidayah-selayang",
+                "review_number": 3610,
+                "review_with_comment_number": 0,
+                "score": 0.0,
+                "service_fee_percentage_amount": 0,
+                "service_tax_percentage_amount": 0,
+                "tag": "NEXTGEN_FREE_DELIVERY_TAG",
+                "tags": [
+                    {
+                        "code": "DEAL",
+                        "text": "NEXTGEN_FREE_DELIVERY_TAG"
+                    }
+                ],
+                "filter_only_tags": [
+                    {
+                        "id": "t9so0vl"
+                    },
+                    {
+                        "id": "t5hs0tq"
+                    },
+                    {
+                        "id": "t8go1pz"
+                    },
+                    {
+                        "id": "t2yx3xy"
+                    },
+                    {
+                        "id": "t0tw4qm"
+                    },
+                    {
+                        "id": "t7fu7ei"
+                    },
+                    {
+                        "id": "t3gr1lz"
+                    },
+                    {
+                        "id": "t7ne6pz"
+                    },
+                    {
+                        "id": "t4bc7od"
+                    },
+                    {
+                        "id": "t9md2rl"
+                    },
+                    {
+                        "id": "t5wr9oj"
+                    },
+                    {
+                        "id": "t9sk4nc"
+                    },
+                    {
+                        "id": "t3lm7xt"
+                    },
+                    {
+                        "id": "t6jy8da"
+                    },
+                    {
+                        "id": "t0bw1cs"
+                    },
+                    {
+                        "id": "t0mr9tr"
+                    },
+                    {
+                        "id": "t7yz9mx"
+                    },
+                    {
+                        "id": "t3jj6kh"
+                    },
+                    {
+                        "id": "t5pr4fh"
+                    },
+                    {
+                        "id": "t1jj2eo"
+                    },
+                    {
+                        "id": "t3nn3sf"
+                    },
+                    {
+                        "id": "t3ap5nu"
+                    },
+                    {
+                        "id": "t9wl8bo"
+                    },
+                    {
+                        "id": "t2ny8yz"
+                    },
+                    {
+                        "id": "t3hw2fj"
+                    },
+                    {
+                        "id": "t4lc1mp"
+                    },
+                    {
+                        "id": "t8uu6ja"
+                    },
+                    {
+                        "id": "t9zg6mq"
+                    },
+                    {
+                        "id": "t4tk3vc"
+                    },
+                    {
+                        "id": "t1ik8gm"
+                    },
+                    {
+                        "id": "t5po6ul"
+                    },
+                    {
+                        "id": "t6ly2vf"
+                    },
+                    {
+                        "id": "t1nv8qp"
+                    },
+                    {
+                        "id": "t9mh8la"
+                    },
+                    {
+                        "id": "t5ag8al"
+                    },
+                    {
+                        "id": "t8do3mc"
+                    },
+                    {
+                        "id": "t9tk7qr"
+                    },
+                    {
+                        "id": "t5pn5vu"
+                    },
+                    {
+                        "id": "t6ju5kn"
+                    },
+                    {
+                        "id": "t6yy7vc"
+                    },
+                    {
+                        "id": "t7wb3ey"
+                    },
+                    {
+                        "id": "t6wj6rp"
+                    },
+                    {
+                        "id": "t3rn4md"
+                    },
+                    {
+                        "id": "t6gu7rt"
+                    },
+                    {
+                        "id": "t7gy4qs"
+                    },
+                    {
+                        "id": "t2ya3hs"
+                    },
+                    {
+                        "id": "t1fi1ee"
+                    },
+                    {
+                        "id": "t4ry6iw"
+                    },
+                    {
+                        "id": "t1py4mv"
+                    },
+                    {
+                        "id": "t2cs1sb"
+                    },
+                    {
+                        "id": "t1el1ui"
+                    },
+                    {
+                        "id": "t2zi0to"
+                    },
+                    {
+                        "id": "t6dm4ev"
+                    },
+                    {
+                        "id": "t1jd7tc"
+                    },
+                    {
+                        "id": "t8vd1ry"
+                    },
+                    {
+                        "id": "t6br0kd"
+                    },
+                    {
+                        "id": "t0ee7eu"
+                    },
+                    {
+                        "id": "t0hq2ma"
+                    },
+                    {
+                        "id": "t0nd5wm"
+                    },
+                    {
+                        "id": "t1tu7wt"
+                    },
+                    {
+                        "id": "t5dh2eq"
+                    },
+                    {
+                        "id": "t9gf2ys"
+                    },
+                    {
+                        "id": "t0mj4ws"
+                    },
+                    {
+                        "id": "t1xx6og"
+                    },
+                    {
+                        "id": "t0nw9dc"
+                    },
+                    {
+                        "id": "t1rn3sf"
+                    },
+                    {
+                        "id": "t6ws5yl"
+                    },
+                    {
+                        "id": "t1ei3ht"
+                    }
+                ],
+                "url_key": "restoran-al-bidayah-selayang",
+                "vat_percentage_amount": 0,
+                "characteristics": {
+                    "cuisines": [
+                        {
+                            "id": 88,
+                            "name": "Noodles",
+                            "url_key": "noodles",
+                            "main": false
+                        },
+                        {
+                            "id": 102,
+                            "name": "Rice Dishes",
+                            "url_key": "rice-dishes",
+                            "main": false
+                        },
+                        {
+                            "id": 1126,
+                            "name": "Roti Canai",
+                            "url_key": "roti-canai",
+                            "main": true
+                        },
+                        {
+                            "id": 119,
+                            "name": "Malaysian",
+                            "url_key": "malaysian",
+                            "main": false
+                        },
+                        {
+                            "id": 54,
+                            "name": "Asian",
+                            "url_key": "asian",
+                            "main": false
+                        }
+                    ],
+                    "food_characteristics": [],
+                    "primary_cuisine": {
+                        "id": 1126,
+                        "name": "Roti Canai",
+                        "url_key": "roti-canai",
+                        "main": true
+                    }
+                },
+                "vendor_points": 6216,
+                "vertical": "restaurants",
+                "vertical_segment": "restaurants",
+                "vertical_parent": "Restaurant",
+                "web_path": "https://foodpanda.my/restaurant/r4rv/restoran-al-bidayah-selayang",
+                "website": "",
+                "has_online_payment": true,
+                "discounts_info": [],
+                "discounts": [],
+                "vendor_legal_information": {
+                    "legal_name": "Restoran Al Bidayah",
+                    "trade_register_number": "001077595-H"
+                },
+                "disclaimers": [],
+                "customer_phone": "+60125706857",
+                "vertical_type_ids": [
+                    "restaurants"
+                ],
+                "delivery_provider": "platform_delivery",
+                "is_active": true,
+                "is_best_in_city": false,
+                "is_checkout_comment_enabled": false,
+                "is_delivery_enabled": true,
+                "is_new": false,
+                "is_pickup_enabled": true,
+                "is_premium": false,
+                "is_preorder_enabled": true,
+                "is_replacement_dish_enabled": false,
+                "is_service_fee_enabled": false,
+                "is_service_tax_enabled": false,
+                "is_service_tax_visible": false,
+                "is_test": false,
+                "is_vat_disabled": false,
+                "is_vat_included_in_product_price": true,
+                "is_vat_visible": false,
+                "is_voucher_enabled": true,
+                "is_promoted": false,
+                "tag_ids": []
+            },
+            {
+                "id": 33419,
+                "code": "q7hh",
+                "accepts_instructions": true,
+                "address": "No. 153 East Fence Road, Taman Nanyang Jinjang Utara",
+                "address_line2": "",
+                "budget": 1,
+                "chain": {
+                    "code": "",
+                    "name": "",
+                    "main_vendor_code": "",
+                    "url_key": ""
+                },
+                "city": {
+                    "name": "Kepong"
+                },
+                "cuisines": [
+                    {
+                        "id": 88,
+                        "name": "Noodles",
+                        "url_key": "noodles",
+                        "main": false
+                    },
+                    {
+                        "id": 102,
+                        "name": "Rice Dishes",
+                        "url_key": "rice-dishes",
+                        "main": false
+                    },
+                    {
+                        "id": 1126,
+                        "name": "Roti Canai",
+                        "url_key": "roti-canai",
+                        "main": true
+                    },
+                    {
+                        "id": 119,
+                        "name": "Malaysian",
+                        "url_key": "malaysian",
+                        "main": false
+                    },
+                    {
+                        "id": 54,
+                        "name": "Asian",
+                        "url_key": "asian",
+                        "main": false
+                    }
+                ],
+                "custom_location_url": "",
+                "customer_type": "all",
+                "delivery_box": "",
+                "delivery_fee_type": "amount",
+                "description": "",
+                "distance": 3.4,
+                "food_characteristics": [],
+                "has_delivery_provider": true,
+                "hero_image": "https://images.deliveryhero.io/image/fd-my/LH/q7hh-hero.jpg",
+                "hero_listing_image": "https://images.deliveryhero.io/image/fd-my/LH/q7hh-listing.jpg",
+                "is_new_until": "2020-05-23T00:00:00Z",
+                "premium_position": 0,
+                "latitude": 3.22439238,
+                "logo": "",
+                "longitude": 101.66271085,
+                "loyalty_percentage_amount": 0.0,
+                "loyalty_program_enabled": false,
+                "maximum_express_order_amount": 0,
+                "metadata": {
+                    "has_discount": false,
+                    "timezone": "Asia/Kuala_Lumpur",
+                    "close_reasons": [],
+                    "available_in": null,
+                    "events": [
+                        {
+                            "id": "my_7567",
+                            "name": "",
+                            "messages": [
+                                "Get meals delivered now for as low as RM0.99, exclusively in your area. Order now!"
+                            ],
+                            "actions": [
+                                {
+                                    "type": "message",
+                                    "message": "Get meals delivered now for as low as RM0.99, exclusively in your area. Order now!"
+                                }
+                            ],
+                            "tags": {}
+                        }
+                    ],
+                    "is_delivery_available": true,
+                    "is_pickup_available": true,
+                    "is_dine_in_available": false,
+                    "is_express_delivery_available": false,
+                    "is_temporary_closed": false,
+                    "is_flood_feature_closed": false
+                },
+                "minimum_delivery_fee": 0.0,
+                "minimum_delivery_time": 60.0,
+                "delivery_duration_range": {
+                    "lower_limit_in_minutes": 55,
+                    "upper_limit_in_minutes": 75
+                },
+                "minimum_order_amount": 5.0,
+                "minimum_pickup_time": 15.0,
+                "name": "Haji Hassan Food Corner",
+                "payment_types": [],
+                "post_code": "52000",
+                "primary_cuisine_id": 1126,
+                "rating": 4.4,
+                "redirection_url": "https://foodpanda.my/restaurant/q7hh/haji-hassan-food-corner",
+                "review_number": 2057,
+                "review_with_comment_number": 0,
+                "score": 0.0,
+                "service_fee_percentage_amount": 0,
+                "service_tax_percentage_amount": 0,
+                "tag": "NEXTGEN_FREE_DELIVERY_TAG",
+                "tags": [
+                    {
+                        "code": "DEAL",
+                        "text": "NEXTGEN_FREE_DELIVERY_TAG"
+                    }
+                ],
+                "filter_only_tags": [
+                    {
+                        "id": "t9so0vl"
+                    },
+                    {
+                        "id": "t5hs0tq"
+                    },
+                    {
+                        "id": "t8go1pz"
+                    },
+                    {
+                        "id": "t2yx3xy"
+                    },
+                    {
+                        "id": "t0tw4qm"
+                    },
+                    {
+                        "id": "t2od3ja"
+                    },
+                    {
+                        "id": "t3gr1lz"
+                    },
+                    {
+                        "id": "t7ne6pz"
+                    },
+                    {
+                        "id": "t4bc7od"
+                    },
+                    {
+                        "id": "t6rc4rx"
+                    },
+                    {
+                        "id": "t9md2rl"
+                    },
+                    {
+                        "id": "t5wr9oj"
+                    },
+                    {
+                        "id": "t9sk4nc"
+                    },
+                    {
+                        "id": "t3lm7xt"
+                    },
+                    {
+                        "id": "t6jy8da"
+                    },
+                    {
+                        "id": "t0bw1cs"
+                    },
+                    {
+                        "id": "t0mr9tr"
+                    },
+                    {
+                        "id": "t7yz9mx"
+                    },
+                    {
+                        "id": "t3jj6kh"
+                    },
+                    {
+                        "id": "t5pr4fh"
+                    },
+                    {
+                        "id": "t1jj2eo"
+                    },
+                    {
+                        "id": "t3nn3sf"
+                    },
+                    {
+                        "id": "t3ap5nu"
+                    },
+                    {
+                        "id": "t9wl8bo"
+                    },
+                    {
+                        "id": "t2ny8yz"
+                    },
+                    {
+                        "id": "t3hw2fj"
+                    },
+                    {
+                        "id": "t4lc1mp"
+                    },
+                    {
+                        "id": "t8uu6ja"
+                    },
+                    {
+                        "id": "t4tk3vc"
+                    },
+                    {
+                        "id": "t1ik8gm"
+                    },
+                    {
+                        "id": "t5po6ul"
+                    },
+                    {
+                        "id": "t6ly2vf"
+                    },
+                    {
+                        "id": "t1nv8qp"
+                    },
+                    {
+                        "id": "t9mh8la"
+                    },
+                    {
+                        "id": "t5ag8al"
+                    },
+                    {
+                        "id": "t8do3mc"
+                    },
+                    {
+                        "id": "t9tk7qr"
+                    },
+                    {
+                        "id": "t5pn5vu"
+                    },
+                    {
+                        "id": "t6ju5kn"
+                    },
+                    {
+                        "id": "t6yy7vc"
+                    },
+                    {
+                        "id": "t7wb3ey"
+                    },
+                    {
+                        "id": "t6wj6rp"
+                    },
+                    {
+                        "id": "t3rn4md"
+                    },
+                    {
+                        "id": "t6gu7rt"
+                    },
+                    {
+                        "id": "t7gy4qs"
+                    },
+                    {
+                        "id": "t2ya3hs"
+                    },
+                    {
+                        "id": "t1fi1ee"
+                    },
+                    {
+                        "id": "t4ry6iw"
+                    },
+                    {
+                        "id": "t1py4mv"
+                    },
+                    {
+                        "id": "t2cs1sb"
+                    },
+                    {
+                        "id": "t1el1ui"
+                    },
+                    {
+                        "id": "t2zi0to"
+                    },
+                    {
+                        "id": "t6dm4ev"
+                    },
+                    {
+                        "id": "t1jd7tc"
+                    },
+                    {
+                        "id": "t8vd1ry"
+                    },
+                    {
+                        "id": "t6br0kd"
+                    },
+                    {
+                        "id": "t0ee7eu"
+                    },
+                    {
+                        "id": "t0hq2ma"
+                    },
+                    {
+                        "id": "t0nd5wm"
+                    },
+                    {
+                        "id": "t1tu7wt"
+                    },
+                    {
+                        "id": "t5dh2eq"
+                    },
+                    {
+                        "id": "t9gf2ys"
+                    },
+                    {
+                        "id": "t0mj4ws"
+                    },
+                    {
+                        "id": "t1xx6og"
+                    },
+                    {
+                        "id": "t0nw9dc"
+                    },
+                    {
+                        "id": "t1rn3sf"
+                    },
+                    {
+                        "id": "t6ws5yl"
+                    },
+                    {
+                        "id": "t1ei3ht"
+                    }
+                ],
+                "url_key": "haji-hassan-food-corner",
+                "vat_percentage_amount": 0,
+                "characteristics": {
+                    "cuisines": [
+                        {
+                            "id": 88,
+                            "name": "Noodles",
+                            "url_key": "noodles",
+                            "main": false
+                        },
+                        {
+                            "id": 102,
+                            "name": "Rice Dishes",
+                            "url_key": "rice-dishes",
+                            "main": false
+                        },
+                        {
+                            "id": 1126,
+                            "name": "Roti Canai",
+                            "url_key": "roti-canai",
+                            "main": true
+                        },
+                        {
+                            "id": 119,
+                            "name": "Malaysian",
+                            "url_key": "malaysian",
+                            "main": false
+                        },
+                        {
+                            "id": 54,
+                            "name": "Asian",
+                            "url_key": "asian",
+                            "main": false
+                        }
+                    ],
+                    "food_characteristics": [],
+                    "primary_cuisine": {
+                        "id": 1126,
+                        "name": "Roti Canai",
+                        "url_key": "roti-canai",
+                        "main": true
+                    }
+                },
+                "vendor_points": 5965,
+                "vertical": "restaurants",
+                "vertical_segment": "restaurants",
+                "vertical_parent": "Restaurant",
+                "web_path": "https://foodpanda.my/restaurant/q7hh/haji-hassan-food-corner",
+                "website": "",
+                "has_online_payment": true,
+                "discounts_info": [],
+                "discounts": [],
+                "vendor_legal_information": {
+                    "legal_name": "Haji Hassan Food Corner",
+                    "trade_register_number": "002296225-V"
+                },
+                "disclaimers": [],
+                "customer_phone": "+60162841417",
+                "vertical_type_ids": [
+                    "restaurants"
+                ],
+                "delivery_provider": "platform_delivery",
+                "is_active": true,
+                "is_best_in_city": false,
+                "is_checkout_comment_enabled": false,
+                "is_delivery_enabled": true,
+                "is_new": false,
+                "is_pickup_enabled": true,
+                "is_premium": false,
+                "is_preorder_enabled": true,
+                "is_replacement_dish_enabled": false,
+                "is_service_fee_enabled": false,
+                "is_service_tax_enabled": false,
+                "is_service_tax_visible": false,
+                "is_test": false,
+                "is_vat_disabled": false,
+                "is_vat_included_in_product_price": true,
+                "is_vat_visible": false,
+                "is_voucher_enabled": true,
+                "is_promoted": false,
+                "tag_ids": []
+            },
+            {
+                "id": 55236,
+                "code": "u0id",
+                "accepts_instructions": true,
+                "address": "G18,JALAN METRO PRIMA 5,PUSAT NIAGA METRO PRIMA,52100 KUALA LUMPUR",
+                "address_line2": "",
+                "budget": 1,
+                "chain": {
+                    "code": "cq2bq",
+                    "name": "RESTORAN MAJU AL MUBARAK",
+                    "main_vendor_code": "u0id",
+                    "url_key": "restoran-maju-al-mubarak"
+                },
+                "city": {
+                    "name": "Kepong"
+                },
+                "cuisines": [
+                    {
+                        "id": 88,
+                        "name": "Noodles",
+                        "url_key": "noodles",
+                        "main": false
+                    },
+                    {
+                        "id": 1106,
+                        "name": "Nasi Lemak",
+                        "url_key": "nasi-lemak",
+                        "main": false
+                    },
+                    {
+                        "id": 68,
+                        "name": "Beverages",
+                        "url_key": "beverages",
+                        "main": false
+                    },
+                    {
+                        "id": 102,
+                        "name": "Rice Dishes",
+                        "url_key": "rice-dishes",
+                        "main": false
+                    },
+                    {
+                        "id": 1126,
+                        "name": "Roti Canai",
+                        "url_key": "roti-canai",
+                        "main": true
+                    },
+                    {
+                        "id": 119,
+                        "name": "Malaysian",
+                        "url_key": "malaysian",
+                        "main": false
+                    },
+                    {
+                        "id": 54,
+                        "name": "Asian",
+                        "url_key": "asian",
+                        "main": false
+                    }
+                ],
+                "custom_location_url": "",
+                "customer_type": "all",
+                "delivery_box": "",
+                "delivery_fee_type": "amount",
+                "description": "",
+                "distance": 4.788,
+                "food_characteristics": [],
+                "has_delivery_provider": true,
+                "hero_image": "https://images.deliveryhero.io/image/fd-my/LH/u0id-hero.jpg",
+                "hero_listing_image": "https://images.deliveryhero.io/image/fd-my/LH/u0id-listing.jpg",
+                "is_new_until": "2020-07-14T00:00:00Z",
+                "premium_position": 0,
+                "latitude": 3.21238755,
+                "logo": "",
+                "longitude": 101.6405212,
+                "loyalty_percentage_amount": 0.0,
+                "loyalty_program_enabled": false,
+                "maximum_express_order_amount": 0,
+                "metadata": {
+                    "has_discount": false,
+                    "timezone": "Asia/Kuala_Lumpur",
+                    "close_reasons": [],
+                    "available_in": null,
+                    "events": [
+                        {
+                            "id": "my_7567",
+                            "name": "",
+                            "messages": [
+                                "Get meals delivered now for as low as RM0.99, exclusively in your area. Order now!"
+                            ],
+                            "actions": [
+                                {
+                                    "type": "message",
+                                    "message": "Get meals delivered now for as low as RM0.99, exclusively in your area. Order now!"
+                                }
+                            ],
+                            "tags": {}
+                        }
+                    ],
+                    "is_delivery_available": true,
+                    "is_pickup_available": true,
+                    "is_dine_in_available": true,
+                    "is_express_delivery_available": false,
+                    "is_temporary_closed": false,
+                    "is_flood_feature_closed": false
+                },
+                "minimum_delivery_fee": 0.0,
+                "minimum_delivery_time": 60.0,
+                "delivery_duration_range": {
+                    "lower_limit_in_minutes": 55,
+                    "upper_limit_in_minutes": 75
+                },
+                "minimum_order_amount": 5.0,
+                "minimum_pickup_time": 15.0,
+                "name": "RESTORAN MAJU AL MUBARAK",
+                "payment_types": [],
+                "post_code": "52100",
+                "primary_cuisine_id": 1126,
+                "rating": 4.5,
+                "redirection_url": "https://foodpanda.my/restaurant/u0id/restoran-maju-al-mubarak",
+                "review_number": 1745,
+                "review_with_comment_number": 0,
+                "score": 0.0,
+                "service_fee_percentage_amount": 0,
+                "service_tax_percentage_amount": 0,
+                "tag": "NEXTGEN_FREE_DELIVERY_TAG",
+                "tags": [
+                    {
+                        "code": "DEAL",
+                        "text": "NEXTGEN_FREE_DELIVERY_TAG"
+                    },
+                    {
+                        "code": "SUPER_VENDOR",
+                        "text": "NEXTGEN_SUPER_VENDOR"
+                    }
+                ],
+                "filter_only_tags": [
+                    {
+                        "id": "t9so0vl"
+                    },
+                    {
+                        "id": "t5hs0tq"
+                    },
+                    {
+                        "id": "t8go1pz"
+                    },
+                    {
+                        "id": "t2yx3xy"
+                    },
+                    {
+                        "id": "t0tw4qm"
+                    },
+                    {
+                        "id": "t7fu7ei"
+                    },
+                    {
+                        "id": "t3gr1lz"
+                    },
+                    {
+                        "id": "t7ne6pz"
+                    },
+                    {
+                        "id": "t4bc7od"
+                    },
+                    {
+                        "id": "t9md2rl"
+                    },
+                    {
+                        "id": "t5wr9oj"
+                    },
+                    {
+                        "id": "t9sk4nc"
+                    },
+                    {
+                        "id": "t3lm7xt"
+                    },
+                    {
+                        "id": "t6jy8da"
+                    },
+                    {
+                        "id": "t0bw1cs"
+                    },
+                    {
+                        "id": "t0mr9tr"
+                    },
+                    {
+                        "id": "t7yz9mx"
+                    },
+                    {
+                        "id": "t3jj6kh"
+                    },
+                    {
+                        "id": "t5pr4fh"
+                    },
+                    {
+                        "id": "t1jj2eo"
+                    },
+                    {
+                        "id": "t3nn3sf"
+                    },
+                    {
+                        "id": "t3ap5nu"
+                    },
+                    {
+                        "id": "t9wl8bo"
+                    },
+                    {
+                        "id": "t2ny8yz"
+                    },
+                    {
+                        "id": "t3hw2fj"
+                    },
+                    {
+                        "id": "t8uu6ja"
+                    },
+                    {
+                        "id": "t4tk3vc"
+                    },
+                    {
+                        "id": "t1ik8gm"
+                    },
+                    {
+                        "id": "t5po6ul"
+                    },
+                    {
+                        "id": "t6ly2vf"
+                    },
+                    {
+                        "id": "t1nv8qp"
+                    },
+                    {
+                        "id": "t9mh8la"
+                    },
+                    {
+                        "id": "t5ag8al"
+                    },
+                    {
+                        "id": "t8do3mc"
+                    },
+                    {
+                        "id": "t9tk7qr"
+                    },
+                    {
+                        "id": "t5pn5vu"
+                    },
+                    {
+                        "id": "t6ju5kn"
+                    },
+                    {
+                        "id": "t6yy7vc"
+                    },
+                    {
+                        "id": "t7wb3ey"
+                    },
+                    {
+                        "id": "t6wj6rp"
+                    },
+                    {
+                        "id": "t3rn4md"
+                    },
+                    {
+                        "id": "t6gu7rt"
+                    },
+                    {
+                        "id": "t4we1qu"
+                    },
+                    {
+                        "id": "t7gy4qs"
+                    },
+                    {
+                        "id": "t2ya3hs"
+                    },
+                    {
+                        "id": "t1fi1ee"
+                    },
+                    {
+                        "id": "t4ry6iw"
+                    },
+                    {
+                        "id": "t1py4mv"
+                    },
+                    {
+                        "id": "t2cs1sb"
+                    },
+                    {
+                        "id": "t1el1ui"
+                    },
+                    {
+                        "id": "t2zi0to"
+                    },
+                    {
+                        "id": "t6dm4ev"
+                    },
+                    {
+                        "id": "t1jd7tc"
+                    },
+                    {
+                        "id": "t8vd1ry"
+                    },
+                    {
+                        "id": "t6br0kd"
+                    },
+                    {
+                        "id": "t0hq2ma"
+                    },
+                    {
+                        "id": "t0nd5wm"
+                    },
+                    {
+                        "id": "t1tu7wt"
+                    },
+                    {
+                        "id": "t5dh2eq"
+                    },
+                    {
+                        "id": "t9gf2ys"
+                    },
+                    {
+                        "id": "t0mj4ws"
+                    },
+                    {
+                        "id": "t1xx6og"
+                    },
+                    {
+                        "id": "t0nw9dc"
+                    },
+                    {
+                        "id": "t1rn3sf"
+                    },
+                    {
+                        "id": "t6ws5yl"
+                    },
+                    {
+                        "id": "t1ei3ht"
+                    }
+                ],
+                "url_key": "restoran-maju-al-mubarak",
+                "vat_percentage_amount": 0,
+                "characteristics": {
+                    "cuisines": [
+                        {
+                            "id": 88,
+                            "name": "Noodles",
+                            "url_key": "noodles",
+                            "main": false
+                        },
+                        {
+                            "id": 1106,
+                            "name": "Nasi Lemak",
+                            "url_key": "nasi-lemak",
+                            "main": false
+                        },
+                        {
+                            "id": 68,
+                            "name": "Beverages",
+                            "url_key": "beverages",
+                            "main": false
+                        },
+                        {
+                            "id": 102,
+                            "name": "Rice Dishes",
+                            "url_key": "rice-dishes",
+                            "main": false
+                        },
+                        {
+                            "id": 1126,
+                            "name": "Roti Canai",
+                            "url_key": "roti-canai",
+                            "main": true
+                        },
+                        {
+                            "id": 119,
+                            "name": "Malaysian",
+                            "url_key": "malaysian",
+                            "main": false
+                        },
+                        {
+                            "id": 54,
+                            "name": "Asian",
+                            "url_key": "asian",
+                            "main": false
+                        }
+                    ],
+                    "food_characteristics": [],
+                    "primary_cuisine": {
+                        "id": 1126,
+                        "name": "Roti Canai",
+                        "url_key": "roti-canai",
+                        "main": true
+                    }
+                },
+                "vendor_points": 5863,
+                "vertical": "restaurants",
+                "vertical_segment": "restaurants",
+                "vertical_parent": "Restaurant",
+                "web_path": "https://foodpanda.my/restaurant/u0id/restoran-maju-al-mubarak",
+                "website": "",
+                "has_online_payment": true,
+                "discounts_info": [],
+                "discounts": [],
+                "vendor_legal_information": {
+                    "legal_name": "RESTORAN MAJU AL MUBARAK",
+                    "trade_register_number": "001546050-D"
+                },
+                "disclaimers": [],
+                "customer_phone": "+60367347228",
+                "vertical_type_ids": [
+                    "restaurants"
+                ],
+                "delivery_provider": "platform_delivery",
+                "is_active": true,
+                "is_best_in_city": false,
+                "is_checkout_comment_enabled": false,
+                "is_delivery_enabled": true,
+                "is_new": false,
+                "is_pickup_enabled": true,
+                "is_premium": false,
+                "is_preorder_enabled": true,
+                "is_replacement_dish_enabled": false,
+                "is_service_fee_enabled": false,
+                "is_service_tax_enabled": false,
+                "is_service_tax_visible": false,
+                "is_test": false,
+                "is_vat_disabled": false,
+                "is_vat_included_in_product_price": true,
+                "is_vat_visible": false,
+                "is_voucher_enabled": true,
+                "is_promoted": false,
+                "tag_ids": []
+            },
+            {
+                "id": 244406,
+                "code": "ejn3",
+                "accepts_instructions": true,
+                "address": "KK Super Mart Jinjang Utara (JUT2), Jinjang Utara, 52000 Kepong, Kepong, Malaysia",
+                "address_line2": "",
+                "budget": 1,
+                "chain": {
+                    "code": "",
+                    "name": "",
+                    "main_vendor_code": "",
+                    "url_key": ""
+                },
+                "city": {
+                    "name": "Kepong"
+                },
+                "cuisines": [
+                    {
+                        "id": 88,
+                        "name": "Noodles",
+                        "url_key": "noodles",
+                        "main": false
+                    },
+                    {
+                        "id": 102,
+                        "name": "Rice Dishes",
+                        "url_key": "rice-dishes",
+                        "main": false
+                    },
+                    {
+                        "id": 54,
+                        "name": "Asian",
+                        "url_key": "asian",
+                        "main": true
+                    }
+                ],
+                "custom_location_url": "",
+                "customer_type": "all",
+                "delivery_box": "",
+                "delivery_fee_type": "amount",
+                "description": "",
+                "distance": 4.205,
+                "food_characteristics": [],
+                "has_delivery_provider": true,
+                "hero_image": "https://images.deliveryhero.io/image/fd-my/LH/ejn3-hero.jpg",
+                "hero_listing_image": "https://images.deliveryhero.io/image/fd-my/LH/ejn3-listing.jpg",
+                "is_new_until": "2023-07-12T03:53:02Z",
+                "premium_position": 0,
+                "latitude": 3.21673516,
+                "logo": "",
+                "longitude": 101.6621719,
+                "loyalty_percentage_amount": 0.0,
+                "loyalty_program_enabled": false,
+                "maximum_express_order_amount": 0,
+                "metadata": {
+                    "has_discount": false,
+                    "timezone": "Asia/Kuala_Lumpur",
+                    "close_reasons": [],
+                    "available_in": null,
+                    "events": [
+                        {
+                            "id": "my_7567",
+                            "name": "",
+                            "messages": [
+                                "Get meals delivered now for as low as RM0.99, exclusively in your area. Order now!"
+                            ],
+                            "actions": [
+                                {
+                                    "type": "message",
+                                    "message": "Get meals delivered now for as low as RM0.99, exclusively in your area. Order now!"
+                                }
+                            ],
+                            "tags": {}
+                        }
+                    ],
+                    "is_delivery_available": true,
+                    "is_pickup_available": true,
+                    "is_dine_in_available": false,
+                    "is_express_delivery_available": false,
+                    "is_temporary_closed": false,
+                    "is_flood_feature_closed": false
+                },
+                "minimum_delivery_fee": 0.0,
+                "minimum_delivery_time": 60.0,
+                "delivery_duration_range": {
+                    "lower_limit_in_minutes": 55,
+                    "upper_limit_in_minutes": 75
+                },
+                "minimum_order_amount": 5.0,
+                "minimum_pickup_time": 15.0,
+                "name": "ABANG GORENG HAWKER",
+                "payment_types": [],
+                "post_code": "52000",
+                "primary_cuisine_id": 54,
+                "rating": 4.4,
+                "redirection_url": "https://foodpanda.my/restaurant/ejn3/abang-goreng-hawker",
+                "review_number": 19,
+                "review_with_comment_number": 0,
+                "score": 0.0,
+                "service_fee_percentage_amount": 0,
+                "service_tax_percentage_amount": 0,
+                "tag": "NEXTGEN_FREE_DELIVERY_TAG",
+                "tags": [
+                    {
+                        "code": "DEAL",
+                        "text": "NEXTGEN_FREE_DELIVERY_TAG"
+                    }
+                ],
+                "filter_only_tags": [
+                    {
+                        "id": "t9mh8la"
+                    },
+                    {
+                        "id": "t5ag8al"
+                    },
+                    {
+                        "id": "t6gu7rt"
+                    },
+                    {
+                        "id": "t7gy4qs"
+                    },
+                    {
+                        "id": "t2ya3hs"
+                    },
+                    {
+                        "id": "t1fi1ee"
+                    },
+                    {
+                        "id": "t4ry6iw"
+                    },
+                    {
+                        "id": "t1py4mv"
+                    },
+                    {
+                        "id": "t2cs1sb"
+                    },
+                    {
+                        "id": "t1el1ui"
+                    },
+                    {
+                        "id": "t2zi0to"
+                    },
+                    {
+                        "id": "t6dm4ev"
+                    },
+                    {
+                        "id": "t1jd7tc"
+                    },
+                    {
+                        "id": "t8vd1ry"
+                    },
+                    {
+                        "id": "t6br0kd"
+                    },
+                    {
+                        "id": "t0ee7eu"
+                    },
+                    {
+                        "id": "t0hq2ma"
+                    },
+                    {
+                        "id": "t0nd5wm"
+                    },
+                    {
+                        "id": "t1tu7wt"
+                    },
+                    {
+                        "id": "t1xx6og"
+                    },
+                    {
+                        "id": "t0nw9dc"
+                    },
+                    {
+                        "id": "t1rn3sf"
+                    },
+                    {
+                        "id": "t6ws5yl"
+                    },
+                    {
+                        "id": "t1ei3ht"
+                    },
+                    {
+                        "id": "t2ij9fv"
+                    }
+                ],
+                "url_key": "abang-goreng-hawker",
+                "vat_percentage_amount": 0,
+                "characteristics": {
+                    "cuisines": [
+                        {
+                            "id": 88,
+                            "name": "Noodles",
+                            "url_key": "noodles",
+                            "main": false
+                        },
+                        {
+                            "id": 102,
+                            "name": "Rice Dishes",
+                            "url_key": "rice-dishes",
+                            "main": false
+                        },
+                        {
+                            "id": 54,
+                            "name": "Asian",
+                            "url_key": "asian",
+                            "main": true
+                        }
+                    ],
+                    "food_characteristics": [],
+                    "primary_cuisine": {
+                        "id": 54,
+                        "name": "Asian",
+                        "url_key": "asian",
+                        "main": true
+                    }
+                },
+                "vendor_points": 4358,
+                "vertical": "restaurants",
+                "vertical_segment": "street_food",
+                "vertical_parent": "Restaurant",
+                "web_path": "https://foodpanda.my/restaurant/ejn3/abang-goreng-hawker",
+                "website": "",
+                "has_online_payment": true,
+                "discounts_info": [],
+                "discounts": [],
+                "vendor_legal_information": {
+                    "legal_name": "ABANG GORENG HAWKER",
+                    "trade_register_number": "00589042012"
+                },
+                "disclaimers": [],
+                "customer_phone": "+60165815596",
+                "vertical_type_ids": [
+                    "street_food"
+                ],
+                "delivery_provider": "platform_delivery",
+                "is_active": true,
+                "is_best_in_city": false,
+                "is_checkout_comment_enabled": false,
+                "is_delivery_enabled": true,
+                "is_new": false,
+                "is_pickup_enabled": true,
+                "is_premium": false,
+                "is_preorder_enabled": true,
+                "is_replacement_dish_enabled": false,
+                "is_service_fee_enabled": false,
+                "is_service_tax_enabled": false,
+                "is_service_tax_visible": false,
+                "is_test": false,
+                "is_vat_disabled": false,
+                "is_vat_included_in_product_price": false,
+                "is_vat_visible": false,
+                "is_voucher_enabled": true,
+                "is_promoted": false,
+                "tag_ids": []
+            },
+            {
+                "id": 193937,
+                "code": "ulub",
+                "accepts_instructions": true,
+                "address": "131, Jln Kepong, Metro Prima, Kepong",
+                "address_line2": "",
+                "budget": 1,
+                "chain": {
+                    "code": "",
+                    "name": "",
+                    "main_vendor_code": "",
+                    "url_key": ""
+                },
+                "city": {
+                    "name": "Kepong"
+                },
+                "cuisines": [
+                    {
+                        "id": 88,
+                        "name": "Noodles",
+                        "url_key": "noodles",
+                        "main": false
+                    },
+                    {
+                        "id": 68,
+                        "name": "Beverages",
+                        "url_key": "beverages",
+                        "main": false
+                    },
+                    {
+                        "id": 79,
+                        "name": "Chicken",
+                        "url_key": "chicken",
+                        "main": false
+                    },
+                    {
+                        "id": 102,
+                        "name": "Rice Dishes",
+                        "url_key": "rice-dishes",
+                        "main": false
+                    },
+                    {
+                        "id": 119,
+                        "name": "Malaysian",
+                        "url_key": "malaysian",
+                        "main": true
+                    },
+                    {
+                        "id": 54,
+                        "name": "Asian",
+                        "url_key": "asian",
+                        "main": false
+                    }
+                ],
+                "custom_location_url": "",
+                "customer_type": "all",
+                "delivery_box": "",
+                "delivery_fee_type": "amount",
+                "description": "",
+                "distance": 4.731,
+                "food_characteristics": [],
+                "has_delivery_provider": true,
+                "hero_image": "https://images.deliveryhero.io/image/fd-my/LH/ulub-hero.jpg",
+                "hero_listing_image": "https://images.deliveryhero.io/image/fd-my/LH/ulub-listing.jpg",
+                "is_new_until": "2022-04-20T00:00:00Z",
+                "premium_position": 0,
+                "latitude": 3.2139467,
+                "logo": "",
+                "longitude": 101.6376216,
+                "loyalty_percentage_amount": 0.0,
+                "loyalty_program_enabled": false,
+                "maximum_express_order_amount": 0,
+                "metadata": {
+                    "has_discount": false,
+                    "timezone": "Asia/Kuala_Lumpur",
+                    "close_reasons": [],
+                    "available_in": null,
+                    "events": [
+                        {
+                            "id": "my_7567",
+                            "name": "",
+                            "messages": [
+                                "Get meals delivered now for as low as RM0.99, exclusively in your area. Order now!"
+                            ],
+                            "actions": [
+                                {
+                                    "type": "message",
+                                    "message": "Get meals delivered now for as low as RM0.99, exclusively in your area. Order now!"
+                                }
+                            ],
+                            "tags": {}
+                        }
+                    ],
+                    "is_delivery_available": true,
+                    "is_pickup_available": true,
+                    "is_dine_in_available": false,
+                    "is_express_delivery_available": false,
+                    "is_temporary_closed": false,
+                    "is_flood_feature_closed": false
+                },
+                "minimum_delivery_fee": 0.0,
+                "minimum_delivery_time": 70.0,
+                "delivery_duration_range": {
+                    "lower_limit_in_minutes": 65,
+                    "upper_limit_in_minutes": 85
+                },
+                "minimum_order_amount": 5.0,
+                "minimum_pickup_time": 25.0,
+                "name": "Sunnex Cafe",
+                "payment_types": [],
+                "post_code": "52100",
+                "primary_cuisine_id": 119,
+                "rating": 4.9,
+                "redirection_url": "https://foodpanda.my/restaurant/ulub/sunnex-cafe",
+                "review_number": 50,
+                "review_with_comment_number": 0,
+                "score": 0.0,
+                "service_fee_percentage_amount": 0,
+                "service_tax_percentage_amount": 0,
+                "tag": "NEXTGEN_FREE_DELIVERY_TAG",
+                "tags": [
+                    {
+                        "code": "DEAL",
+                        "text": "NEXTGEN_FREE_DELIVERY_TAG"
+                    }
+                ],
+                "filter_only_tags": [
+                    {
+                        "id": "t4yu4uz"
+                    },
+                    {
+                        "id": "t4bc7od"
+                    },
+                    {
+                        "id": "t6rc4rx"
+                    },
+                    {
+                        "id": "t9md2rl"
+                    },
+                    {
+                        "id": "t5wr9oj"
+                    },
+                    {
+                        "id": "t9sk4nc"
+                    },
+                    {
+                        "id": "t3lm7xt"
+                    },
+                    {
+                        "id": "t6jy8da"
+                    },
+                    {
+                        "id": "t0bw1cs"
+                    },
+                    {
+                        "id": "t7jv2nd"
+                    },
+                    {
+                        "id": "t0mr9tr"
+                    },
+                    {
+                        "id": "t7yz9mx"
+                    },
+                    {
+                        "id": "t3jj6kh"
+                    },
+                    {
+                        "id": "t5pr4fh"
+                    },
+                    {
+                        "id": "t1jj2eo"
+                    },
+                    {
+                        "id": "t3nn3sf"
+                    },
+                    {
+                        "id": "t3ap5nu"
+                    },
+                    {
+                        "id": "t9wl8bo"
+                    },
+                    {
+                        "id": "t9lw4px"
+                    },
+                    {
+                        "id": "t7ct4my"
+                    },
+                    {
+                        "id": "t2ny8yz"
+                    },
+                    {
+                        "id": "t3hw2fj"
+                    },
+                    {
+                        "id": "t4lc1mp"
+                    },
+                    {
+                        "id": "t8uu6ja"
+                    },
+                    {
+                        "id": "t4tk3vc"
+                    },
+                    {
+                        "id": "t1ik8gm"
+                    },
+                    {
+                        "id": "t5po6ul"
+                    },
+                    {
+                        "id": "t6ly2vf"
+                    },
+                    {
+                        "id": "t1nv8qp"
+                    },
+                    {
+                        "id": "t9mh8la"
+                    },
+                    {
+                        "id": "t5ag8al"
+                    },
+                    {
+                        "id": "t8do3mc"
+                    },
+                    {
+                        "id": "t9tk7qr"
+                    },
+                    {
+                        "id": "t5pn5vu"
+                    },
+                    {
+                        "id": "t6ju5kn"
+                    },
+                    {
+                        "id": "t6yy7vc"
+                    },
+                    {
+                        "id": "t7wb3ey"
+                    },
+                    {
+                        "id": "t6wj6rp"
+                    },
+                    {
+                        "id": "t3rn4md"
+                    },
+                    {
+                        "id": "t6gu7rt"
+                    },
+                    {
+                        "id": "t7gy4qs"
+                    },
+                    {
+                        "id": "t2ya3hs"
+                    },
+                    {
+                        "id": "t1fi1ee"
+                    },
+                    {
+                        "id": "t4ry6iw"
+                    },
+                    {
+                        "id": "t1py4mv"
+                    },
+                    {
+                        "id": "t2cs1sb"
+                    },
+                    {
+                        "id": "t1el1ui"
+                    },
+                    {
+                        "id": "t2zi0to"
+                    },
+                    {
+                        "id": "t6dm4ev"
+                    },
+                    {
+                        "id": "t1jd7tc"
+                    },
+                    {
+                        "id": "t8vd1ry"
+                    },
+                    {
+                        "id": "t6br0kd"
+                    },
+                    {
+                        "id": "t0hq2ma"
+                    },
+                    {
+                        "id": "t0nd5wm"
+                    },
+                    {
+                        "id": "t1tu7wt"
+                    },
+                    {
+                        "id": "t5dh2eq"
+                    },
+                    {
+                        "id": "t9gf2ys"
+                    },
+                    {
+                        "id": "t0mj4ws"
+                    },
+                    {
+                        "id": "t1xx6og"
+                    },
+                    {
+                        "id": "t0nw9dc"
+                    },
+                    {
+                        "id": "t1rn3sf"
+                    },
+                    {
+                        "id": "t6ws5yl"
+                    },
+                    {
+                        "id": "t1ei3ht"
+                    }
+                ],
+                "url_key": "sunnex-cafe",
+                "vat_percentage_amount": 0,
+                "characteristics": {
+                    "cuisines": [
+                        {
+                            "id": 88,
+                            "name": "Noodles",
+                            "url_key": "noodles",
+                            "main": false
+                        },
+                        {
+                            "id": 68,
+                            "name": "Beverages",
+                            "url_key": "beverages",
+                            "main": false
+                        },
+                        {
+                            "id": 79,
+                            "name": "Chicken",
+                            "url_key": "chicken",
+                            "main": false
+                        },
+                        {
+                            "id": 102,
+                            "name": "Rice Dishes",
+                            "url_key": "rice-dishes",
+                            "main": false
+                        },
+                        {
+                            "id": 119,
+                            "name": "Malaysian",
+                            "url_key": "malaysian",
+                            "main": true
+                        },
+                        {
+                            "id": 54,
+                            "name": "Asian",
+                            "url_key": "asian",
+                            "main": false
+                        }
+                    ],
+                    "food_characteristics": [],
+                    "primary_cuisine": {
+                        "id": 119,
+                        "name": "Malaysian",
+                        "url_key": "malaysian",
+                        "main": true
+                    }
+                },
+                "vendor_points": 4400,
+                "vertical": "restaurants",
+                "vertical_segment": "restaurants",
+                "vertical_parent": "Restaurant",
+                "web_path": "https://foodpanda.my/restaurant/ulub/sunnex-cafe",
+                "website": "",
+                "has_online_payment": true,
+                "discounts_info": [],
+                "discounts": [],
+                "vendor_legal_information": {
+                    "legal_name": "RMN FORTUNE SDN BHD",
+                    "trade_register_number": "1217513-H"
+                },
+                "disclaimers": [],
+                "customer_phone": "+600362614143",
+                "vertical_type_ids": [
+                    "restaurants"
+                ],
+                "delivery_provider": "platform_delivery",
+                "is_active": true,
+                "is_best_in_city": false,
+                "is_checkout_comment_enabled": false,
+                "is_delivery_enabled": true,
+                "is_new": false,
+                "is_pickup_enabled": true,
+                "is_premium": false,
+                "is_preorder_enabled": true,
+                "is_replacement_dish_enabled": false,
+                "is_service_fee_enabled": false,
+                "is_service_tax_enabled": false,
+                "is_service_tax_visible": false,
+                "is_test": false,
+                "is_vat_disabled": false,
+                "is_vat_included_in_product_price": false,
+                "is_vat_visible": false,
+                "is_voucher_enabled": true,
+                "is_promoted": false,
+                "tag_ids": []
+            }
+        ],
+        "filters": [],
+        "custom_strategy": "Delivery fees below RM1.99",
+        "failed_restaurants": [],
+        "disco_meta": {
+            "reco_config": {
+                "flags": []
+            },
+            "traces": []
+        },
+        "meta": {
+            "background_color": "",
+            "background_image": "",
+            "font_color": "",
+            "gender": "",
+            "custom_layout": "",
+            "custom_field1": "",
+            "custom_field2": "",
+            "custom_field3": "",
+            "custom_field4": "",
+            "custom_field5": ""
+        },
+        "total_vendors": 0,
+        "traces": [],
+        "recommendation_strategy": "a39fb1bd-09cb-4d29-bfeb-5b3f260d3ca7",
+        "exclude_closed_restaurants": true
+    }
+]

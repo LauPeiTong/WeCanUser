@@ -33,14 +33,14 @@
                 |
                 span.pl-1.text-12.text-decoration-line-through {{$formatCurrency(item.product_variations[0].price*100)}}
               p.secondary--text.font-weight-regular.mb-0 {{$strLimit(item.name, 12)}}
-              p.caption.darkGrey--text.font-weight-light.mb-0 {{10}}
+              p.caption.darkGrey--text.font-weight-light.mb-0 {{ 10 - getItemQuantity(item.id) }} left
             v-card.quantity-card.my-2.rounded-xl.mx-5(outlined)
               v-row.align-center
                 v-col.px-0.text-right
                   v-btn(icon)
                     eva-icon.pt-1(name="minus-outline" :fill="$vuetify.theme.themes.light.darkGrey")
                 v-col.text-center.px-0
-                  span.font-weight-medium {{quantityItem}}
+                  span.font-weight-medium {{getItemQuantity(item.id) }}
                 v-col.px-0.text-left
                   v-btn(icon)
                     eva-icon.pt-1(name="plus-outline" :fill="$vuetify.theme.themes.light.success")
@@ -85,14 +85,14 @@ export default {
           // Because: #app {padding: 80px 24px;}
           padding: 8
         }
-      },
-      quantityItem: 0
+      }
     }
   },
   computed: {
     ...mapGetters({
       shops: 'home/getShops',
-      scrollSize: 'screen/getScrollXClass'
+      scrollSize: 'screen/getScrollXClass',
+      getItemQuantity: 'cart/getItemQuantity'
     }),
     colorClass () {
       if (this.color === 'success') {

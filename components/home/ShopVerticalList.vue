@@ -20,7 +20,7 @@
                   |
                   img.ml-1(width="14" height="14" :src="require(`../../assets/home/star.jpg`)")
                   |   {{item.rating}}
-                p.caption.darkGrey--text.font-weight-light.mb-0.mt-0 {{item.delivery_duration_range.lower_limit_in_minutes}} mins .
+                p.caption.darkGrey--text.font-weight-light.mb-0.mt-0 {{ item.delivery_duration_range ? item.delivery_duration_range.lower_limit_in_minutes : item.minimum_pickup_time }} mins .
                   |
                   img.mx-1(width="13" height="12" :src="require(`../../assets/home/motorcycle.jpg`)")
                   |   {{$formatCurrency(300)}}

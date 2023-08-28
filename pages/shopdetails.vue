@@ -32,7 +32,7 @@
                   eva-icon(name="cube" :fill="$vuetify.theme.themes.light.primary" height="30" width="30")
                 v-list-item-content
                   v-list-item-title.secondary--text Delivery now
-                  v-list-item-subtitle {{shop.delivery_duration_range.lower_limit_in_minutes}} mins .
+                  v-list-item-subtitle {{shop.delivery_duration_range ? shop.delivery_duration_range.lower_limit_in_minutes : shop.minimum_pickup_time}} mins .
                     |
                     img.mx-1(width="13" height="12" :src="require(`../assets/home/motorcycle.jpg`)")
                     |   {{$formatCurrency(300)}}
@@ -54,12 +54,19 @@
                   eva-icon(name="arrow-ios-forward" :fill="$vuetify.theme.themes.light.primary" height="30" width="30")
         v-divider.mx-4
 
-        .foods.pb-8
+        .foods.pb-8.pb-16
           template(v-for='food in foods')
-            food-list.pt-4(:foods="food.products" :title="food.name" :color="'success'")
-          //- food-list.pt-4(:foods="discountFood(0.75)" :title="'75% discount'" :color="'danger'")
-          //- food-list.pt-4(:foods="discountFood(0.5)" :title="'50% discount'" :color="'primary'")
+            food-list.pt-4.pb-8(:foods="food.products" :title="food.name" :color="'success'")
 
+    v-footer.white.rounded-t-xl(absolute elevation="4" v-if="totalQuantity > 0")
+      v-col(class="text-center" cols="12")
+        w-button.bottom-nav--button(
+          :label="'Cart . ' + totalQuantity + ' Item (' + $formatCurrency(totalAmount) + ')'"
+          block
+          dark
+          :color="$vuetify.theme.themes.light.primary"
+          @click="goToCheckoutPage"
+        )
 </template>
 
 <script>
@@ -67,6 +74,7 @@ import { mapGetters } from 'vuex'
 
 import UpperTitle from '../components/UpperTitle.vue'
 import WIcon from '../components/componenets-custom/WIcon.vue'
+import WButton from '../components/componenets-custom/WButton.vue'
 import JobDescription from '../components/home/JobDescription.vue'
 import ShopTop from '../components/shop/ShopTop.vue'
 import FoodList from '../components/shop/FoodList.vue'
@@ -76,6 +84,7 @@ export default {
   components: {
     UpperTitle,
     WIcon,
+    WButton,
     JobDescription,
     ShopTop,
     FoodList
@@ -87,13 +96,14 @@ export default {
       offsetTop: 0
     }
   },
-
   computed: {
     ...mapGetters({
       shop: 'home/getSelectedShop',
       foods: 'home/getFoods',
       categories: 'home/getCategories',
-      scrollSize: 'screen/getScrollYClass'
+      scrollSize: 'screen/getScrollYClass',
+      totalAmount: 'cart/getCartTotalAmount',
+      totalQuantity: 'cart/getCartQuantity'
     }),
     shopLogo () {
       return this.shop.hero_listing_image
@@ -129,21 +139,10 @@ export default {
       this.search = newValue
     },
     goBackToPreviousPage () {
-      this.$router.go(-1)
+      this.$router.push('/home')
     },
-    getTag (cid) {
-      for (let i = 1; i <= this.categories.length; i++) {
-        if (i === cid[0]) {
-          return this.categories[i - 1].name
-        }
-      }
-    },
-    getTag2 (cid) {
-      for (let i = 1; i <= this.categories.length; i++) {
-        if (i === cid[1]) {
-          return this.categories[i - 1].name
-        }
-      }
+    goToCheckoutPage () {
+      this.$router.push('/checkout')
     }
   }
 }
@@ -197,5 +196,9 @@ export default {
 
 .text-decoration-underline {
   text-underline-offset: 3px;
+}
+
+.v-footer {
+  z-index: 100 !important;
 }
 </style>
