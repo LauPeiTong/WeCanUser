@@ -4,7 +4,10 @@
     upper-title.ma-0(:title="''" :icon="'more-vertical'" @goBack="goBackToPreviousPage" :back="true")
   .scroll.ma-0.justify-top.align-center.full-width.pb-16(:style="scrollSize")
     v-img.mx-auto(:src="require(`../assets/img/success1.png`)" max-height="300" max-width="300")
-    h1.text-center.font-weight-regular.pt-4 Your Order has been accepted
+    v-card.mt-8.py-2.d-flex.align-end.justify-center.rounded-xl.mx-auto(outlined max-width="180")
+      h1.primary--text.text-center.font-weight-bold +5
+      h4.mb-2.ml-2.primary--text.primary--text WePoints
+    h2.text-center.font-weight-regular.pt-4 Your Order has been accepted
     p.darkGrey--text.text-center {{ pickupMethod == 'Delivery' ? 'We’ll let you know when rider is found.' : 'We’ll remind when the order is ready to pick-up.'}}
     v-row.mx-6.pt-5
       w-button.bottom-nav--button(

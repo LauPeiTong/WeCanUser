@@ -4,6 +4,7 @@
     upper-title.ma-0(:title="'Food Tracker'" :icon="'more-vertical'")
     w-search-bar.ma-0(@change="searchBy")
   .scroll.ma-0.justify-top.align-center(:style="scrollSize")
+    food-list.pt-10.pb-2
 </template>
 
 <script>
@@ -11,12 +12,14 @@ import { mapGetters } from 'vuex'
 
 import UpperTitle from '../components/UpperTitle.vue'
 import WSearchBar from '../components/componenets-custom/WSearchBar.vue'
+import FoodList from '../components/foodtracker/FoodList.vue'
 
 export default {
-  name: 'TrackerPage',
+  name: 'FoodTrackerPage',
   components: {
     UpperTitle,
-    WSearchBar
+    WSearchBar,
+    FoodList
   },
   layout: 'default',
   data () {

@@ -1,4 +1,3 @@
-
 export default {
 
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
@@ -32,6 +31,7 @@ export default {
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     { src: '~/plugins/client.js', ssr: false },
+    { src: '~/plugins/google-maps.js' },
     '~/plugins/vuetify.js',
     '~/plugins/filter.js',
     '~/plugins/currency.js',
@@ -55,10 +55,18 @@ export default {
     '@nuxtjs/axios'
   ],
 
+  // entirely optional
+
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-    baseURL: '/'
+    // Set your API key here
+    baseURL: '/',
+    headers: {
+      common: {
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer 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'
+      }
+    }
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify

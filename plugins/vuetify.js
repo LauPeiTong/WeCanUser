@@ -14,7 +14,8 @@ export default new Vuetify({
         warning: '#EB7100', // red
         success: '#009966', // green
         green: '#61A498',
-        brown: '#918679'
+        brown: '#918679',
+        lightOrange: '#FDE7B5'
       }
     }
   }

@@ -3,6 +3,7 @@
   v-row.pa-0.ma-0.upper-row
     upper-title.ma-0(:title="'Account'" :icon="'more-vertical'")
   .scroll.ma-0.justify-top.align-center(:style="scrollSize")
+    .div
 </template>
 
 <script>
@@ -21,7 +22,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      scrollSize: 'screen/getScrollClass',
+      scrollSize: 'screen/getScrollClass'
     })
   },
   methods: {

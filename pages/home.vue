@@ -20,7 +20,7 @@
         )
     shops-list.pb-4
     item-list.pb-4
-    shop-vertical-list.px-4.pb-4(:items="recommendedShops" :title="'Shops recommeded for you'")
+    shop-vertical-list.px-4.pb-4(:items="recommendedShops" :title="'Shops offers Menu Rahmah'")
 </template>
 
 <script>

@@ -35,32 +35,32 @@ export default {
           iconFill: 'home'
         },
         {
-          label: 'Tracker',
-          path: '/tracker',
-          name: 'tracker',
+          label: 'Food',
+          path: '/foodtracker',
+          name: 'foodtracker',
           icon: 'file-text-outline',
           iconFill: 'file-text'
         },
         {
-          label: 'Forum',
-          path: '/forum',
-          name: 'forum',
-          icon: 'globe-2-outline',
-          iconFill: 'globe-2'
-        },
-        {
-          label: 'Message',
+          label: 'WeBot',
           path: '/message',
           name: 'message',
           icon: 'message-square-outline',
           iconFill: 'message-square'
         },
         {
-          label: 'Account',
-          path: '/account',
-          name: 'account',
-          icon: 'person-outline',
-          iconFill: 'person'
+          label: 'Map',
+          path: '/foodmap',
+          name: 'foodmap',
+          icon: 'compass-outline',
+          iconFill: 'compass'
+        },
+        {
+          label: 'Donation',
+          path: '/donation',
+          name: 'donation',
+          icon: 'gift-outline',
+          iconFill: 'gift'
         }
       ]
     }
