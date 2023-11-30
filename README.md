@@ -4,7 +4,7 @@
 WeCan is amweb app that provide a platform for Malaysian to buy surplus food at a deep discount. It is built using framework of Nuxt.js and Vuetify. It provieds the features such as:
 
 ### Order leftover food
-[<img src="./assets/img/UI1.png" width="200" />](./assets/img/UI1.png)
+[<img src="./assets/img/UI1.png" width="300" style="border-radius: 12px;" />](./assets/img/UI1.png)
 
 ## Build Setup
 
