@@ -18,6 +18,7 @@ WeCan is amweb app that provide a platform for Malaysian to buy surplus food at 
 ### Food and recipe recommendation by WeBot
 [<img src="./assets/img/UI4.png" width="300" />](./assets/img/UI4.png)
 
+You can access the web app through this link: https://wecan-user.netlify.app
 
 ## Build Setup
 
