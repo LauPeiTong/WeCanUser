@@ -25,11 +25,11 @@
             @click="goToShopPage(item)"
             outlined
           )
-            v-img.rounded-lg(:src="item.hero_listing_image" width="140" height="130")
+            v-img.rounded-lg(:src="item.image_url" width="140" height="130")
             .pa-2
-              p.secondary--text.font-weight-medium.mb-0 {{$strLimit(item.name, 18)}}
-              p.caption.darkGrey--text.font-weight-light.mb-0 {{$strLimit(item.city.name, 14)}}
-              span.caption.darkGrey--text.font-weight-light.mb-0.mt-0 {{item.distance}} km .
+              p.secondary--text.font-weight-medium.mb-0 {{$strLimit(item.display_name, 18)}}
+              p.caption.darkGrey--text.font-weight-light.mb-0 {{$strLimit(item.city, 14)}}
+              span.caption.darkGrey--text.font-weight-light.mb-0.mt-0 {{item.distance.toFixed(2)}} km .
                 |
                 img(width="14" height="14" :src="require(`../../assets/home/star.jpg`)")
                 |   {{item.rating}}
@@ -53,6 +53,7 @@ export default {
   },
   data () {
     return {
+      nearByRestaurants: [],
       options: {
         responsive: [
           { end: 500, size: 2.75 },
@@ -67,10 +68,18 @@ export default {
   },
   computed: {
     ...mapGetters({
-      shops: 'home/getNearShops',
-      nearByRestaurants: 'home/getNearByRestaurants',
+      // nearByRestaurants: 'home/getNearByRestaurants',
       scrollSize: 'screen/getScrollXClass'
     })
+  },
+  async mounted () {
+    try {
+      const response = await this.$axios.get('/api/users/vendors/?type=near')
+      this.nearByRestaurants = response.data
+      console.log(this.nearByRestaurants)
+    } catch (e) {
+      this.$router.push({ path: '/login' })
+    }
   },
   methods: {
     ...mapActions({

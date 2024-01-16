@@ -11,22 +11,22 @@
           )
             v-row
               v-col(:cols="5")
-                v-img.rounded-lg.ma-3(:src="require(`../../assets/food/noitem.png`)" width="110" height="110" v-if="item.hero_image == ''")
-                v-img.rounded-lg.ma-3(:src="item.hero_image" width="110" height="110" v-else)
+                v-img.rounded-lg.ma-3(:src="require(`../../assets/food/noitem.png`)" width="110" height="110" v-if="item.image_url == ''")
+                v-img.rounded-lg.ma-3(:src="item.image_url" width="110" height="110" v-else)
               v-col.py-2.pl-0.d-flex.flex-column(:cols="7")
-                p.secondary--text.font-weight-medium.mb-0.pt-4 {{$strLimit(item.name, 20)}}
-                p.caption.darkGrey--text.font-weight-light.mb-0 {{item.city.name}}
-                p.caption.darkGrey--text.font-weight-light.mb-0.mt-0 {{item.distance}} km .
+                p.secondary--text.font-weight-medium.mb-0.pt-4 {{$strLimit(item.display_name, 20)}}
+                p.caption.darkGrey--text.font-weight-light.mb-0 {{item.city}}
+                p.caption.darkGrey--text.font-weight-light.mb-0.mt-0 {{item.distance.toFixed(2)}} km .
                   |
                   img.ml-1(width="14" height="14" :src="require(`../../assets/home/star.jpg`)")
                   |   {{item.rating}}
-                p.caption.darkGrey--text.font-weight-light.mb-0.mt-0 {{ item.delivery_duration_range ? item.delivery_duration_range.lower_limit_in_minutes : item.minimum_pickup_time }} mins .
+                p.caption.darkGrey--text.font-weight-light.mb-0.mt-0 {{ Math.round(item.distance * 2.5) }} mins .
                   |
                   img.mx-1(width="13" height="12" :src="require(`../../assets/home/motorcycle.jpg`)")
-                  |   {{$formatCurrency(300)}}
+                  |   {{ item.tags.includes('Free Delivery') ? 'Free' : $formatCurrency(Math.round(item.distance * 1.2) * 100)}}
                 v-row.d-flex.flex-row.mb-4.pl-2
-                  template(v-for='tag in item.food_characteristics')
-                    v-chip.mt-auto.mr-2.rounded-xl(outlined :color="$vuetify.theme.themes.light.primary") {{tag.name}}
+                  template(v-for='tag in item.tags')
+                    v-chip.mt-auto.mr-2.rounded-xl(outlined :color="$vuetify.theme.themes.light.primary" v-if="tag != 'Menu Rahmah'") {{tag}}
 
 </template>
 

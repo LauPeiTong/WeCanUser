@@ -17,22 +17,6 @@ export const state = () => ({
     { id: 6, name: 'Hotel', new_job: 16 },
     { id: 7, name: 'Bakery', new_job: 71 }
   ]
-  // shops: [
-  //   { id: 1, name: 'MyNews', address: 'Seri Kembangan, Selangor', distance: 1.2, rate: 4.8, src: 'mynews', tags: ['Halal'], duration: 20, deliveryFee: 400 },
-  //   { id: 2, name: 'Sushi King', address: 'Shah Alam, Selangor', distance: 1.3, rate: 4.3, src: 'sushiking', tags: ['Halal'], duration: 20, deliveryFee: 400 },
-  //   { id: 3, name: 'Secret Recipe', address: 'Shah Alam, Selangor', distance: 1.5, rate: 4.5, src: 'secretrecipe', tags: ['Halal', 'Free delivery'], duration: 20, deliveryFee: 500 },
-  //   { id: 4, name: 'BananaBro', address: 'Shah Alam, Selangor', distance: 1.2, rate: 4.1, src: 'bananabro', tags: ['Halal'], duration: 20, deliveryFee: 400 },
-  //   { id: 5, name: '99 Speedmart', address: 'Shah Alam, Selangor', distance: 1.2, rate: 4.8, src: '99speedmart', tags: [], duration: 20, deliveryFee: 400 },
-  //   { id: 6, name: 'Aeon', address: 'Petaling Jaya, Selangor', distance: 2.8, rate: 4.8, src: 'aeon', tags: ['Free delivery'], duration: 30, deliveryFee: 600 },
-  //   { id: 7, name: 'Family Mart', address: 'Petaling Jaya, Selangor', distance: 2.8, rate: 4.8, src: 'familymart', tags: [], duration: 30, deliveryFee: 600 }
-  // ],
-  // foods: [
-  //   { id: 1, name: 'Rose Lychee Cake', shop: 3, discount: 0.5, originalPrice: 899, quantity: '1 pcs', expiredDate: 'Today, 11:00pm', src: 'roselycheecake' },
-  //   { id: 2, name: 'Fried Chicken Rice', shop: 7, discount: 0.75, originalPrice: 1799, quantity: '1 pcs', expiredDate: 'Today, 11:00pm', src: 'friedchickenrice' },
-  //   { id: 3, name: 'Sandwich', shop: 1, discount: 0.75, originalPrice: 480, quantity: '2 pcs', expiredDate: 'Today, 11:00pm', src: 'sandwich' },
-  //   { id: 4, name: 'Udon', shop: 7, discount: 0.75, originalPrice: 800, quantity: '1 bowl', expiredDate: 'Today, 11:00pm', src: 'udon' },
-  //   { id: 5, name: 'Kurma Milk', shop: 6, discount: 0.5, originalPrice: 350, quantity: '500 g', expiredDate: '18/12/2022', src: 'kurmamilk' }
-  // ]
 })
 
 export const getters = {

@@ -20,7 +20,7 @@
         )
     shops-list.pb-4
     item-list.pb-4
-    shop-vertical-list.px-4.pb-4(:items="recommendedShops" :title="'Shops offers Menu Rahmah'")
+    shop-vertical-list.px-4.pb-4(:items="menuRahmahShops" :title="'Shops offers Menu Rahmah'")
 </template>
 
 <script>
@@ -46,6 +46,7 @@ export default {
   layout: 'default',
   data () {
     return {
+      menuRahmahShops: [],
       search: null,
       ads: [
         { id: 1 },
@@ -56,10 +57,40 @@ export default {
   computed: {
     ...mapGetters({
       scrollSize: 'screen/getScrollClass',
-      shops: 'home/getShops',
-      recommendedShops: 'home/getRecommendedShops',
       scrollXSize: 'screen/getScrollXClass'
     })
+  },
+  async mounted () {
+    try {
+      const response = await this.$axios.get('/api/users/vendors/?tags=Menu Rahmah')
+      this.menuRahmahShops = response.data
+      console.log(this.menuRahmahShops)
+
+      const newOrderData = {
+        customer: this.$store.getters['auth/getAuthId'],
+        vendor: 54,
+        delivery_fee: 5.00,
+        tax: 0.05,
+        status: 'Processing',
+        delivery_or_pickup: 'Delivery',
+        notes: 'Special instructions for delivery',
+        products: [
+          {
+            product: 4279,
+            quantity: 1
+          },
+          {
+            product: 4277,
+            quantity: 2
+          }
+        ]
+      }
+
+      const order = await this.$axios.post('/api/orders/', newOrderData)
+      console.log('Order data:', order)
+    } catch (e) {
+      this.$router.push({ path: '/login' })
+    }
   },
   methods: {
     searchBy (newValue) {

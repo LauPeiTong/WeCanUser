@@ -60,7 +60,7 @@ export default {
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Set your API key here
-    baseURL: '/',
+    baseURL: 'http://localhost:8000',
     headers: {
       common: {
         'Content-Type': 'application/json',

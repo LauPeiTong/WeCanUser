@@ -18,6 +18,18 @@ export default {
   data () {
     return {
     }
+  },
+  // asyncData ({ store, redirect }) {
+  //   if (!store.state.auth.isAuthenticated) {
+  //     console.log('hello')
+  //     return redirect('/login')
+  //   }
+  // },
+  mounted () {
+    if (!this.$store.getters['auth/isAuthenticated']) {
+      console.log('No Authentication')
+      this.$router.push({ path: '/login' })
+    }
   }
 }
 </script>
