@@ -23,7 +23,7 @@
                 p.caption.darkGrey--text.font-weight-light.mb-0.mt-0 {{ Math.round(item.distance * 2.5) }} mins .
                   |
                   img.mx-1(width="13" height="12" :src="require(`../../assets/home/motorcycle.jpg`)")
-                  |   {{ item.tags.includes('Free Delivery') ? 'Free' : $formatCurrency(Math.round(item.distance * 1.2) * 100)}}
+                  |   {{ item.tags.includes('Free Delivery') ? 'Free' : $formatCurrency(Math.round(item.distance * 1.2))}}
                 v-row.d-flex.flex-row.mb-4.pl-2
                   template(v-for='tag in item.tags')
                     v-chip.mt-auto.mr-2.rounded-xl(outlined :color="$vuetify.theme.themes.light.primary" v-if="tag != 'Menu Rahmah'") {{tag}}
@@ -80,13 +80,14 @@ export default {
         }
       }
     },
-    goToJobDetailsPage (item) {
-      this.changeSelectedJob(item)
-      this.$router.push('/jobdetails')
-    },
-    goToShopPage (item) {
-      this.changeSelectedShop(item)
-      this.$router.push('/shopdetails')
+    async goToShopPage (item) {
+      try {
+        const response = await this.$axios.get(`/api/products/vendor/${item.id}/`)
+        this.changeSelectedShop(item)
+        this.$router.push({ name: 'shops-id', params: { id: item.id, shop: item, foods: response.data } })
+      } catch (e) {
+        console.log(e)
+      }
     }
   }
 }

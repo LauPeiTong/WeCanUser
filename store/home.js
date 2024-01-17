@@ -9,19 +9,21 @@ export const state = () => ({
   recommendations: restaurants,
   foods: menu,
   categories: [
-    { id: 1, name: 'All', new_job: 54 },
-    { id: 2, name: 'Halal', new_job: 22 },
-    { id: 3, name: 'Restaurant', new_job: 33 },
-    { id: 4, name: 'Grocery', new_job: 23 },
-    { id: 5, name: 'Supermarket', new_job: 26 },
-    { id: 6, name: 'Hotel', new_job: 16 },
-    { id: 7, name: 'Bakery', new_job: 71 }
+    { id: 1, name: 'All' },
+    { id: 2, name: 'Halal' },
+    { id: 3, name: 'Restaurant' },
+    { id: 4, name: 'Grocery' },
+    { id: 5, name: 'Supermarket' },
+    { id: 7, name: 'Bakery' }
   ]
 })
 
 export const getters = {
   getCategories (state) {
     return state.categories
+  },
+  getSelectedCategory (state) {
+    return state.selectedCategory
   },
   getNearByRestaurants (state) {
     const r = state.recommendations.find((r) => {

@@ -13,13 +13,14 @@
       template(v-slot:default="{item}")
         .align-center
           v-card.mx-auto.pa-4.mb-1.category-card(
-            @click=""
+            @click="goToShopListPage(item)"
             width="35"
             elevation="0"
             :color="$vuetify.theme.themes.light.primary"
           )
             v-img.category-card--img(:src="require(`../../assets/home/${item.name.toLowerCase()}.jpg`)" width="35")
-          span.black--text {{item.name}}
+          .black--text.text-truncate(v-if="item.name==='Supermarket'") {{item.name}}
+          .black--text(v-else) {{item.name}}
 
 </template>
 
@@ -62,24 +63,9 @@ export default {
     ...mapActions({
       changeSelectedCategory: 'home/changeSelectedCategory'
     }),
-    cardColor (id) {
-      if (id % 3 === 1) {
-        return '#404348'
-      } else if (id % 3 === 2) {
-        return '#918679'
-      } else {
-        return '#FEB81E'
-      }
-    },
-    getName (name) {
-      return name === 'IT' ? 'information technology' : name.toLowerCase()
-    },
-    viewAllCategories () {
-      this.$router.push('/categories')
-    },
-    goToJobsPage (item) {
+    goToShopListPage (item) {
       this.changeSelectedCategory(item)
-      this.$router.push('/jobs')
+      this.$router.push('/shops')
     }
   }
 }

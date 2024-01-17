@@ -4,6 +4,6 @@ export default ({ app }, inject) => {
       style: 'currency',
       currency,
       currencyDisplay
-    }).format(value / 100)
+    }).format(value)
   })
 }

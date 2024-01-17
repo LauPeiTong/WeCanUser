@@ -1,7 +1,7 @@
 <template lang="pug">
 .fill-height.home-page.pa-0.ma-0
   v-row.pa-0.ma-0.upper-row
-    upper-title.ma-0(:icon="'heart'" :title-class="'dark-background'")
+    upper-title.ma-0(:icon="'file-text'" :title-class="'dark-background'")
     w-search-bar.ma-0(@change="searchBy")
   .scroll.scrollbar-hide.ma-0.justify-top.align-center(:style="scrollSize")
     category-list.pb-4.pt-6
@@ -64,30 +64,30 @@ export default {
     try {
       const response = await this.$axios.get('/api/users/vendors/?tags=Menu Rahmah')
       this.menuRahmahShops = response.data
-      console.log(this.menuRahmahShops)
+      // console.log(this.menuRahmahShops)
 
-      const newOrderData = {
-        customer: this.$store.getters['auth/getAuthId'],
-        vendor: 54,
-        delivery_fee: 5.00,
-        tax: 0.05,
-        status: 'Processing',
-        delivery_or_pickup: 'Delivery',
-        notes: 'Special instructions for delivery',
-        products: [
-          {
-            product: 4279,
-            quantity: 1
-          },
-          {
-            product: 4277,
-            quantity: 2
-          }
-        ]
-      }
+      // const newOrderData = {
+      //   customer: this.$store.getters['auth/getAuthId'],
+      //   vendor: 54,
+      //   delivery_fee: 5.00,
+      //   tax: 0.05,
+      //   status: 'Processing',
+      //   delivery_or_pickup: 'Delivery',
+      //   notes: 'Special instructions for delivery',
+      //   products: [
+      //     {
+      //       product: 4279,
+      //       quantity: 1
+      //     },
+      //     {
+      //       product: 4277,
+      //       quantity: 2
+      //     }
+      //   ]
+      // }
 
-      const order = await this.$axios.post('/api/orders/', newOrderData)
-      console.log('Order data:', order)
+      // const order = await this.$axios.post('/api/orders/', newOrderData)
+      // console.log('Order data:', order)
     } catch (e) {
       this.$router.push({ path: '/login' })
     }

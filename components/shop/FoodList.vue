@@ -25,15 +25,16 @@
             @click="goToFoodDetailsPage(item)"
             outlined
           )
-            v-img.rounded-lg.mx-auto.align-end.text-right(:src="require(`../../assets/food/noitem.png`)" width="140" height="110" v-if="item.logo_path == ''")
-            v-img.rounded-xl.mx-auto.align-end.text-right(:src="item.logo_path" width="140" height="110" v-else)
-              v-chip.ma-2.rounded-xl(outlined :color="$vuetify.theme.themes.light.primary") {{0.5 * 100}}%
+            v-img.rounded-lg.mx-auto.align-end.text-right(:src="require(`../../assets/food/noitem.png`)" width="140" height="110" v-if="item.image_url == ''")
+              v-chip.ma-2.rounded-xl(outlined :color="$vuetify.theme.themes.light.primary") {{parseInt(item.discount)}}%
+            v-img.rounded-xl.mx-auto.align-end.text-right(:src="item.image_url" width="140" height="110" v-else)
+              v-chip.ma-2.rounded-xl(outlined :color="$vuetify.theme.themes.light.primary") {{parseInt(item.discount)}}%
             .px-4.py-2
-              span.tertiary--text.font-weight-regular.mb-1 {{$formatCurrency($discountPrice(item.product_variations[0].price*100, 0.5))}}
+              span.tertiary--text.font-weight-regular.mb-1 {{$formatCurrency(item.price)}}
                 |
-                span.pl-1.text-12.text-decoration-line-through {{$formatCurrency(item.product_variations[0].price*100)}}
+                span.pl-1.text-12.text-decoration-line-through {{$formatCurrency(item.original_price)}}
               p.secondary--text.font-weight-regular.mb-0 {{$strLimit(item.name, 12)}}
-              p.caption.darkGrey--text.font-weight-light.mb-0 {{ 10 - getItemQuantity(item.id) }} left
+              p.caption.darkGrey--text.font-weight-light.mb-0 {{ item.quantity }} left
             v-card.quantity-card.my-2.rounded-xl.mx-5(outlined)
               v-row.align-center
                 v-col.px-0.text-right

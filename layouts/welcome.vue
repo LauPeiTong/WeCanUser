@@ -12,6 +12,12 @@ export default {
   data () {
     return {
     }
+  },
+  mounted () {
+    if (!this.$store.getters['auth/isAuthenticated']) {
+      console.log('No Authentication')
+      this.$router.push({ path: '/login' })
+    }
   }
 }
 </script>

@@ -4,7 +4,7 @@
     v-col.pa-0.ma-0
       p.text-h6.font-weight-medium.pt-4.mb-0 Shops near you
     v-col.pa-0.ma-0.d-flex
-      v-row.pt-4.mb-1.pr-0.align-end.justify-end(@click="")
+      v-row.pt-4.mb-1.pr-0.align-end.justify-end(@click="goToShopListPage")
         p.mb-0.primary--text View all
         w-icon.pt-1(
           :height="26"
@@ -27,8 +27,8 @@
           )
             v-img.rounded-lg(:src="item.image_url" width="140" height="130")
             .pa-2
-              p.secondary--text.font-weight-medium.mb-0 {{$strLimit(item.display_name, 18)}}
-              p.caption.darkGrey--text.font-weight-light.mb-0 {{$strLimit(item.city, 14)}}
+              .secondary--text.font-weight-medium.mb-0.text-truncate {{item.display_name}}
+              .caption.darkGrey--text.font-weight-light.mb-0.text-truncate {{item.city}}
               span.caption.darkGrey--text.font-weight-light.mb-0.mt-0 {{item.distance.toFixed(2)}} km .
                 |
                 img(width="14" height="14" :src="require(`../../assets/home/star.jpg`)")
@@ -69,21 +69,23 @@ export default {
   computed: {
     ...mapGetters({
       // nearByRestaurants: 'home/getNearByRestaurants',
-      scrollSize: 'screen/getScrollXClass'
+      scrollSize: 'screen/getScrollXClass',
+      categories: 'home/getCategories'
     })
   },
   async mounted () {
     try {
       const response = await this.$axios.get('/api/users/vendors/?type=near')
       this.nearByRestaurants = response.data
-      console.log(this.nearByRestaurants)
+      // console.log(this.nearByRestaurants)
     } catch (e) {
       this.$router.push({ path: '/login' })
     }
   },
   methods: {
     ...mapActions({
-      changeSelectedShop: 'home/changeSelectedShop'
+      changeSelectedShop: 'home/changeSelectedShop',
+      changeSelectedCategory: 'home/changeSelectedCategory'
     }),
     cardColor (id) {
       if (id % 3 === 1) {
@@ -103,6 +105,10 @@ export default {
     goToShopPage (item) {
       this.changeSelectedShop(item)
       this.$router.push('/shopdetails')
+    },
+    goToShopListPage () {
+      this.changeSelectedCategory(this.categories[0])
+      this.$router.push('/shops')
     }
   }
 }
