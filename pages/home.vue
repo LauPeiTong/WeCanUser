@@ -5,7 +5,7 @@
     w-search-bar.ma-0(@change="searchBy")
   .scroll.scrollbar-hide.ma-0.justify-top.align-center(:style="scrollSize")
     category-list.pb-4.pt-6
-    .ads-carousel.pt-4
+    ads-carousel.pt-4
       v-carousel(
         cycle
         height="150"
