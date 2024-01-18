@@ -38,12 +38,12 @@
             v-card.quantity-card.my-2.rounded-xl.mx-5(outlined)
               v-row.align-center
                 v-col.px-0.text-right
-                  v-btn(icon)
+                  v-btn(icon @click.stop="changeQuantity(item, -1)" :disabled="getItemQuantity(item.id) <= 0")
                     eva-icon.pt-1(name="minus-outline" :fill="$vuetify.theme.themes.light.darkGrey")
                 v-col.text-center.px-0
                   span.font-weight-medium {{getItemQuantity(item.id) }}
                 v-col.px-0.text-left
-                  v-btn(icon)
+                  v-btn(icon @click.stop="changeQuantity(item, 1)" :disabled="getItemQuantity(item.id) >= item.quantity")
                     eva-icon.pt-1(name="plus-outline" :fill="$vuetify.theme.themes.light.success")
 
 </template>
@@ -116,7 +116,15 @@ export default {
   },
   methods: {
     ...mapActions({
+      changeCartItem: 'cart/addCartItem'
     }),
+    changeQuantity (selectdItem, num) {
+      const cartItem = {
+        item: selectdItem,
+        quantity: this.getItemQuantity(selectdItem.id) + num
+      }
+      this.changeCartItem(cartItem)
+    },
     goToProductDetailsPage (item) {
       try {
         this.$router.push({ name: 'products-productId', params: { productId: item.id } })

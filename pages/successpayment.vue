@@ -1,14 +1,14 @@
 <template lang="pug">
 .fill-height.cehckout-page.pa-0.ma-0.full-width
   v-row.pa-0.ma-0.upper-row
-    upper-title.ma-0(:title="''" :icon="'more-vertical'" @goBack="goBackToPreviousPage" :back="true")
+    upper-title.ma-0(:title="''" :icon="'more-vertical'" @goBack="goBackToHomePage" :back="true")
   .scroll.ma-0.justify-top.align-center.full-width.pb-16(:style="scrollSize")
     v-img.mx-auto(:src="require(`../assets/img/success1.png`)" max-height="300" max-width="300")
     v-card.mt-8.py-2.d-flex.align-end.justify-center.rounded-xl.mx-auto(outlined max-width="180")
       h1.primary--text.text-center.font-weight-bold +5
       h4.mb-2.ml-2.primary--text.primary--text WePoints
     h2.text-center.font-weight-regular.pt-4 Your Order has been accepted
-    p.darkGrey--text.text-center {{ pickupMethod == 'Delivery' ? 'We’ll let you know when rider is found.' : 'We’ll remind when the order is ready to pick-up.'}}
+    p.darkGrey--text.text-center We’ll let you know when the order is ready.
     v-row.mx-6.pt-5
       w-button.bottom-nav--button(
           :label="'Track Order'"
@@ -49,15 +49,12 @@ export default {
   computed: {
     ...mapGetters({
       scrollSize: 'screen/getScrollTopClass',
-      pickupMethod: 'cart/getPickupMethod'
+      shop: 'cart/getSelectedShop'
     })
   },
   methods: {
     searchBy (newValue) {
       this.search = newValue
-    },
-    goBackToPreviousPage () {
-      this.$router.go(-1)
     },
     goBackToHomePage () {
       this.$router.push('/home')

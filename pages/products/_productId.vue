@@ -70,7 +70,7 @@
             v-col.text-center.px-0
               span.font-weight-medium {{quantity}}
             v-col.px-0.text-left
-              v-btn(icon @click="changeQuantity(1)")
+              v-btn(icon @click="changeQuantity(1)" :disabled="quantity >= food.quantity")
                 eva-icon.pt-1(name="plus-outline" :fill="$vuetify.theme.themes.light.success")
       v-col(class="text-center" cols="6")
         w-button.bottom-nav--button(
@@ -107,7 +107,7 @@ export default {
   layout: 'welcome',
   async asyncData ({ params, $axios }) {
     const food = await $axios.$get(`/api/products/${params.productId}`)
-    console.log(food)
+    console.log('Food data: ', food)
     return { food }
   },
   data () {

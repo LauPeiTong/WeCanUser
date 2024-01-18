@@ -21,7 +21,7 @@
               eva-icon(name="pin" :fill="$vuetify.theme.themes.light.primary" height="30" width="30")
             v-list-item-content
               v-list-item-title.secondary--text.mb-1 Deliver from
-              p.mb-0.tertiary--text {{ shop ? shop.name : '-' }}
+              p.mb-0.tertiary--text {{ shop ? shop.display_name : '-' }}
               v-list-item-subtitle {{ shop ? shop.address : '-' }}
             v-list-item-action
               eva-icon(name="arrow-ios-forward" :fill="$vuetify.theme.themes.light.primary" height="30" width="30")
@@ -32,7 +32,7 @@
               eva-icon(name="pin" :fill="$vuetify.theme.themes.light.green" height="30" width="30")
             v-list-item-content
               v-list-item-title.secondary--text.mb-1 Deliver to
-              p.mb-0.success--text {{ user.addressTitle }}
+              p.mb-0.success--text Home
               v-list-item-subtitle {{ user.address }}
             v-list-item-action
               eva-icon(name="arrow-ios-forward" :fill="$vuetify.theme.themes.light.primary" height="30" width="30")
@@ -44,7 +44,7 @@
               eva-icon(name="pin" :fill="$vuetify.theme.themes.light.primary" height="30" width="30")
             v-list-item-content
               v-list-item-title.secondary--text.mb-1 Pick-up at
-              p.mb-0.tertiary--text {{ shop ? shop.name : '-' }}
+              p.mb-0.tertiary--text {{ shop ? shop.display_name : '-' }}
               v-list-item-subtitle.text-capitalize {{ shop ? shop.address : '-' }}
             v-list-item-action
               eva-icon(name="arrow-ios-forward" :fill="$vuetify.theme.themes.light.primary" height="30" width="30")
@@ -78,7 +78,7 @@ export default {
     ...mapGetters({
       widthX: 'screen/getWidthClass',
       shop: 'cart/getSelectedShop',
-      user: 'user/getUser',
+      user: 'auth/getAuthUser',
       pickupMethod: 'cart/getPickupMethod'
     })
   },

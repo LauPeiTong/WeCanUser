@@ -52,7 +52,7 @@ export default {
         response = await this.$axios.get('/api/users/vendors/?category=Bakery')
       }
       this.shops = response.data
-      console.log(this.shops)
+      console.log('Vendor list: ', this.shops)
     } catch (e) {
       this.$router.push({ path: '/login' })
     }

@@ -14,9 +14,11 @@ export const getters = {
     })
   },
   getCartItem (state) {
-    return state.cartList.find((c) => {
+    const c = state.cartList.find((c) => {
       return c.vendor === state.selectedShop.id
-    }).cartItems
+    })
+
+    return c ? c.cartItems : null
   },
   getCartQuantity (state) {
     const c = state.cartList.find((c) => {
@@ -119,6 +121,13 @@ export const mutations = {
   },
   updateSelectedShop (state, shop) {
     state.selectedShop = shop
+  },
+  deleteCart (state, cart) {
+    const indexToRemove = state.cartList.findIndex(item => item.vendor === state.selectedShop.id)
+
+    if (indexToRemove !== -1) {
+      state.cartList.splice(indexToRemove, 1)
+    }
   }
 }
 
@@ -131,5 +140,8 @@ export const actions = {
   },
   changeSelectedShop ({ commit, state }, shop) {
     commit('updateSelectedShop', shop)
+  },
+  removeCart ({ commit }, cart) {
+    commit('deleteCart', cart)
   }
 }

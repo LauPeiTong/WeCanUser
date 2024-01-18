@@ -92,7 +92,7 @@ export default {
   layout: 'welcome',
   async asyncData ({ params, $axios }) {
     const response = await $axios.$get(`/api/products/vendor/${params.shopId}/`)
-    console.log(response)
+    console.log('Shop data: ', response)
     const shop = response.vendor
     const foods = response.products_data
     return { shop, foods }
