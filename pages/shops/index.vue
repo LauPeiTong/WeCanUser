@@ -21,7 +21,7 @@ export default {
     WSearchBar,
     ShopVerticalList
   },
-  layout: 'default',
+  layout: 'welcome',
   data () {
     return {
       shops: [],
@@ -30,7 +30,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      scrollSize: 'screen/getScrollClass',
+      scrollSize: 'screen/getScrollTopClass',
       scrollXSize: 'screen/getScrollXClass',
       selectedCategory: 'home/getSelectedCategory'
     })

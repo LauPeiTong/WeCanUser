@@ -45,7 +45,7 @@
             v-list-item-content
               v-list-item-title.secondary--text.mb-1 Pick-up at
               p.mb-0.tertiary--text {{ shop ? shop.name : '-' }}
-              v-list-item-subtitle {{ shop ? shop.address : '-' }}
+              v-list-item-subtitle.text-capitalize {{ shop ? shop.address : '-' }}
             v-list-item-action
               eva-icon(name="arrow-ios-forward" :fill="$vuetify.theme.themes.light.primary" height="30" width="30")
 </template>
@@ -61,7 +61,7 @@ export default {
   },
   data () {
     return {
-      tab: null,
+      tab: 'tab-1',
       tabs: [
         {
           id: 1,
@@ -69,7 +69,7 @@ export default {
         },
         {
           id: 2,
-          name: 'Self pick-up'
+          name: 'Pick-up'
         }
       ]
     }
@@ -77,9 +77,13 @@ export default {
   computed: {
     ...mapGetters({
       widthX: 'screen/getWidthClass',
-      shop: 'home/getSelectedShop',
-      user: 'user/getUser'
+      shop: 'cart/getSelectedShop',
+      user: 'user/getUser',
+      pickupMethod: 'cart/getPickupMethod'
     })
+  },
+  mounted () {
+    this.tab = this.pickupMethod === 'Delivery' ? 'tab-1' : 'tab-2'
   },
   methods: {
     ...mapActions({

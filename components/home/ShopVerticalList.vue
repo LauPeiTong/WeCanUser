@@ -66,7 +66,7 @@ export default {
   },
   methods: {
     ...mapActions({
-      // changeSelectedShop: 'home/changeSelectedShop'
+      // changeSelectedShop: 'cart/changeSelectedShop'
     }),
     getCompany (id) {
       return this.companies.find((company) => {
@@ -81,6 +81,7 @@ export default {
       }
     },
     goToShopPage (item) {
+      this.$store.dispatch('cart/changeSelectedShop', item)
       this.$router.push({ name: 'shops-shopId', params: { shopId: item.id } })
     }
   }

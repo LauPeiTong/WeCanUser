@@ -96,7 +96,7 @@ export default {
         this.setAuthUser(user)
         this.storeTokenInLocalStorage(user.token)
 
-        console.log('Login successful', user)
+        console.log('Login successful: ', user)
         this.$router.push({ path: '/home' })
       } catch (error) {
         if (error.response && error.response.data && error.response.data.errors) {

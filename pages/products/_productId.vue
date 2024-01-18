@@ -136,7 +136,8 @@ export default {
   },
   computed: {
     ...mapGetters({
-      scrollSize: 'screen/getScrollYClass'
+      scrollSize: 'screen/getScrollYClass',
+      getItemQuantity: 'cart/getItemQuantity'
     }),
     foodLogo () {
       return require(`../../assets/food/${this.food.src}.jpg`)
@@ -150,7 +151,6 @@ export default {
       addCartItem: 'cart/addCartItem'
     }),
     onScroll (e) {
-      console.log(this.offsetTop)
       this.offsetTop = e.target.scrollTop
     },
     searchBy (newValue) {
@@ -161,14 +161,12 @@ export default {
     },
     changeQuantity (num) {
       this.quantity += num
-      console.log(this.quantity)
     },
     addToCart () {
       const cartItem = {
         item: this.food,
         quantity: this.quantity
       }
-      console.log(cartItem)
       this.addCartItem(cartItem)
       this.$router.go(-1)
     },

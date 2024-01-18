@@ -71,7 +71,7 @@ export default {
       //   vendor: 54,
       //   delivery_fee: 5.00,
       //   tax: 0.05,
-      //   status: 'Processing',
+      //   status: 'Pending',
       //   delivery_or_pickup: 'Delivery',
       //   notes: 'Special instructions for delivery',
       //   products: [

@@ -105,7 +105,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      selectedShop: 'home/getSelectedShop',
+      selectedShop: 'cart/getSelectedShop',
       scrollSize: 'screen/getScrollYClass',
       totalAmount: 'cart/getCartTotalAmount',
       totalQuantity: 'cart/getCartQuantity'

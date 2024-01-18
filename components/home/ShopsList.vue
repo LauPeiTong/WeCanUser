@@ -95,6 +95,7 @@ export default {
       this.$router.push('/shops')
     },
     goToShopPage (item) {
+      this.$store.dispatch('cart/changeSelectedShop', item)
       this.$router.push({ name: 'shops-shopId', params: { shopId: item.id } })
     }
   }
