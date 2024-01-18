@@ -66,17 +66,9 @@ export default {
       recommendedCourse: 'course/getRecommendedCourses'
     })
   },
-  mounted () {
-    this.check()
-  },
   methods: {
     searchBy (newValue) {
       this.search = newValue
-    },
-    check () {
-      if (this.shop === null) {
-        this.$router.push('/home')
-      }
     },
     goBackToPreviousPage () {
       this.$router.go(-1)

@@ -1,5 +1,5 @@
 <template lang="pug">
-.fill-height.food-details-page.pa-0.ma-0.full-width(v-if="!!food")
+.fill-height.product-details-page.pa-0.ma-0.full-width(v-if="!!food")
   v-row.on-top.pt-8.pb-6.pa-0.ma-0.primary(dense)
     v-col.text-center(:cols="2")
       w-icon(
@@ -15,33 +15,33 @@
         @click=""
       )
 
-  .scroll.ma-0.justify-top.align-center.full-width(:style="scrollSize" id="scroll-target" v-scroll:#scroll-target="onScroll")
+  .scroll.ma-0.justify-top.align-center.full-width(:style="scrollSize")
     v-img.absolute-position(height="220")
     v-row.pt-16
       v-col.pt-16.px-8.img-on-top.negative-margin.text-center(:cols="12")
         v-avatar(size="150" )
-          v-img.white(:src="require(`../assets/food/noitem.png`)" v-if="food.file_path == ''")
-          v-img(:src="food.file_path" v-else)
+          v-img.white(:src="require(`../../assets/food/noitem.png`)" v-if="food.image_url == '' || food.image_url == null")
+          v-img(:src="food.image_url" v-else)
 
       v-col.second-on-top.white(:cols="12")
         .food.px-4.pt-10
           .text-right
-            v-chip.my-2.rounded-xl(outlined :color="$vuetify.theme.themes.light.primary") {{0.5 * 100}}% discount
+            v-chip.my-2.rounded-xl(outlined :color="$vuetify.theme.themes.light.primary") {{parseInt(food.discount)}}% discount
           //- Food
           v-card.py-2.px-3.rounded-lg(outlined)
             v-row
               v-col.pb-0(:cols="8")
                 p.font-weight-medium.text-h6.secondary--text.mb-0 {{ food.name }}
-                p.caption.darkGrey--text {{10}} left
+                p.caption.darkGrey--text {{food.quantity}} left
               v-col.pb-0.text-right
-                p.font-weight-medium.text-h6.primary--text.mb-0 {{$formatCurrency($discountPrice(food.product_variations[0].price*100, 0.5))}}
-                p.text-12.text-decoration-line-through.primary--text {{$formatCurrency(food.product_variations[0].price*100)}}
+                p.font-weight-medium.text-h6.primary--text.mb-0 {{$formatCurrency(food.price)}}
+                p.text-12.text-decoration-line-through.primary--text {{$formatCurrency(food.original_price)}}
             v-divider.my-2
             v-row.mb-2
               v-col.pb-0(:cols="6")
                 p.font-weight-medium.secondary--text.mb-0 Expired date & time
               v-col.pb-0.text-right.pt-4
-                p.font-weight-medium.success--text.mb-0 Today, 11:00PM
+                p.font-weight-medium.success--text.mb-0 {{formatDate(new Date(food.expired_date))}}
 
           //- Details
           .py-2.rounded-lg(outlined)
@@ -85,16 +85,17 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
+// import { format, isToday } from 'date-fns'
 
-import UpperTitle from '../components/UpperTitle.vue'
-import WIcon from '../components/componenets-custom/WIcon.vue'
-import WButton from '../components/componenets-custom/WButton.vue'
-import JobDescription from '../components/home/JobDescription.vue'
-import ShopTop from '../components/shop/ShopTop.vue'
-import FoodList from '../components/shop/FoodList.vue'
+import UpperTitle from '../../components/UpperTitle.vue'
+import WIcon from '../../components/componenets-custom/WIcon.vue'
+import WButton from '../../components/componenets-custom/WButton.vue'
+import JobDescription from '../../components/home/JobDescription.vue'
+import ShopTop from '../../components/shop/ShopTop.vue'
+import FoodList from '../../components/shop/FoodList.vue'
 
 export default {
-  name: 'FoodDetailsPage',
+  name: 'ProductDetailsPage',
   components: {
     UpperTitle,
     WIcon,
@@ -104,8 +105,14 @@ export default {
     FoodList
   },
   layout: 'welcome',
+  async asyncData ({ params, $axios }) {
+    const food = await $axios.$get(`/api/products/${params.productId}`)
+    console.log(food)
+    return { food }
+  },
   data () {
     return {
+      food: null,
       search: null,
       offsetTop: 0,
       quantity: 1,
@@ -129,31 +136,21 @@ export default {
   },
   computed: {
     ...mapGetters({
-      food: 'home/getSelectedfood',
-      foods: 'home/getFoods',
-      categories: 'home/getCategories',
       scrollSize: 'screen/getScrollYClass'
     }),
     foodLogo () {
-      return require(`../assets/food/${this.food.src}.jpg`)
+      return require(`../../assets/food/${this.food.src}.jpg`)
     },
     foodImg () {
-      return require(`../assets/food/${this.food.src}.jpg`)
+      return require(`../../assets/food/${this.food.src}.jpg`)
     }
-  },
-  mounted () {
-    this.check()
   },
   methods: {
     ...mapActions({
       addCartItem: 'cart/addCartItem'
     }),
-    check () {
-      if (this.food === null) {
-        this.$router.push('/home')
-      }
-    },
     onScroll (e) {
+      console.log(this.offsetTop)
       this.offsetTop = e.target.scrollTop
     },
     searchBy (newValue) {
@@ -173,7 +170,17 @@ export default {
       }
       console.log(cartItem)
       this.addCartItem(cartItem)
-      this.$router.push('/shopdetails')
+      this.$router.go(-1)
+    },
+    formatDate (date) {
+      const todayFormat = 'HH:mm a'
+      const otherDayFormat = 'dd MMM yyyy, HH:mm a'
+
+      const formattedDate = this.$dateFns.isToday(date)
+        ? 'Today, ' + this.$dateFns.format(date, todayFormat)
+        : this.$dateFns.format(date, otherDayFormat)
+
+      return formattedDate
     }
   }
 }

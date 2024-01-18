@@ -16,7 +16,7 @@
 
   v-row.pl-4.mx-0.scroll-x.text-left(:style="scrollSize")
     vue-horizontal-list(
-      :items="foods"
+      :items="recommendedFoods"
       :options="options"
     )
       template(v-slot:default="{item}")
@@ -25,15 +25,16 @@
             @click=""
             outlined
           )
-            v-img.rounded-xl.mx-auto.align-end.text-right(:src="item.file_path" width="140")
-              v-chip.ma-2.rounded-xl(outlined :color="$vuetify.theme.themes.light.primary") {{0.5 * 100}}%
+            v-img.rounded-lg.mx-auto.align-end.text-right(:src="require(`../../assets/food/noitem.png`)" width="140" height="110" v-if="item.image_url == ''")
+            v-img.rounded-xl.mx-auto.align-end.text-right(:src="item.image_url" width="140" height="110" v-else)
+              v-chip.ma-2.rounded-xl(outlined :color="$vuetify.theme.themes.light.primary") {{parseInt(item.discount)}}%
             .px-4.py-2
-              p.secondary--text.font-weight-medium.mb-0 {{$strLimit(item.name, 14)}}
+              p.secondary--text.font-weight-medium.mb-0.text-truncate {{item.name}}
               //- p.caption.darkGrey--text.font-weight-light.mb-0 5
               p.caption.darkGrey--text.font-weight-light.mb-1 Restoran Al Sarifa
-              span.tertiary--text.font-weight-regular.mb-0 {{$formatCurrency($discountPrice(item.product_variations[0].price*100, 0.5))}}
+              span.tertiary--text.font-weight-regular.mb-0 {{$formatCurrency(item.price)}}
                 |
-                span.pl-1.text-12.text-decoration-line-through {{$formatCurrency(item.product_variations[0].price*100)}}
+                span.pl-1.text-12.text-decoration-line-through {{$formatCurrency(item.original_price)}}
 
 </template>
 
@@ -54,6 +55,8 @@ export default {
   },
   data () {
     return {
+      recommendedFoods: [],
+      vendor: null,
       options: {
         responsive: [
           { end: 500, size: 2.1 },
@@ -68,39 +71,25 @@ export default {
   },
   computed: {
     ...mapGetters({
-      foods: 'home/getRecommendedFoods',
-      shops: 'home/getShops',
+      // foods: 'home/getRecommendedFoods',
       scrollSize: 'screen/getScrollXClass'
     })
+  },
+  async mounted () {
+    try {
+      const response = await this.$axios.get('/api/products/?recommended=true')
+      this.recommendedFoods = response.data.results
+      console.log(this.recommendedFoods)
+    } catch (e) {
+      this.$router.push({ path: '/login' })
+    }
   },
   methods: {
     ...mapActions({
       changeSelectedCategory: 'home/changeSelectedCategory'
     }),
-    getShopName (id) {
-      return this.shops.find((shop) => {
-        return shop.id === id
-      }).name
-    },
-    // job
-    cardColor (id) {
-      if (id % 3 === 1) {
-        return '#404348'
-      } else if (id % 3 === 2) {
-        return '#918679'
-      } else {
-        return '#FEB81E'
-      }
-    },
-    getName (name) {
-      return name === 'IT' ? 'information technology' : name.toLowerCase()
-    },
     viewAllCategories () {
       this.$router.push('/categories')
-    },
-    goToJobsPage (item) {
-      this.changeSelectedCategory(item)
-      this.$router.push('/jobs')
     }
   }
 }

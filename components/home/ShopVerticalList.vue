@@ -66,7 +66,7 @@ export default {
   },
   methods: {
     ...mapActions({
-      changeSelectedShop: 'home/changeSelectedShop'
+      // changeSelectedShop: 'home/changeSelectedShop'
     }),
     getCompany (id) {
       return this.companies.find((company) => {
@@ -80,14 +80,8 @@ export default {
         }
       }
     },
-    async goToShopPage (item) {
-      try {
-        const response = await this.$axios.get(`/api/products/vendor/${item.id}/`)
-        this.changeSelectedShop(item)
-        this.$router.push({ name: 'shops-id', params: { id: item.id, shop: item, foods: response.data } })
-      } catch (e) {
-        console.log(e)
-      }
+    goToShopPage (item) {
+      this.$router.push({ name: 'shops-shopId', params: { shopId: item.id } })
     }
   }
 }

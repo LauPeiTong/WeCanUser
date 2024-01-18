@@ -14,14 +14,14 @@ export const getters = {
   },
   getCartTotalAmount (state) {
     return state.cartItems.reduce((total, cartItem) => {
-      const itemPrice = cartItem.item.product_variations[0].price * 100 * 0.5
+      const itemPrice = cartItem.item.price
       const itemQuantity = cartItem.quantity
       return total + itemPrice * itemQuantity
     }, 0)
   },
   getOriginalTotalAmount (state) {
     return state.cartItems.reduce((total, cartItem) => {
-      const itemPrice = cartItem.item.product_variations[0].price * 100
+      const itemPrice = cartItem.item.price
       const itemQuantity = cartItem.quantity
       return total + itemPrice * itemQuantity
     }, 0)

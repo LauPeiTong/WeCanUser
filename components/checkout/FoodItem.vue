@@ -14,8 +14,8 @@
             )
               v-row
                 v-col(:cols="5")
-                  v-img.rounded-lg.ma-3.border(:src="require(`../../assets/food/noitem.png`)" width="110" height="110" v-if="item.item.logo_path == ''")
-                  v-img.rounded-lg.ma-3(:src="item.item.logo_path" width="110" height="110" v-else)
+                  v-img.rounded-lg.ma-3.border(:src="require(`../../assets/food/noitem.png`)" width="110" height="110" v-if="item.item.image_url == '' || item.item.image_url == null")
+                  v-img.rounded-lg.ma-3(:src="item.item.image_url" width="110" height="110" v-else)
                 v-col.py-2.pl-0.d-flex.flex-column(:cols="7")
                   .d-flex.justify-space-between
                     p.secondary--text.font-weight-medium.mb-0.pt-4 {{$strLimit(item.item.name, 20)}}
@@ -32,7 +32,7 @@
                         v-col.px-0.text-left
                           v-btn(icon)
                             eva-icon.pt-1.pr-5(name="plus-outline" :fill="$vuetify.theme.themes.light.success")
-                    p.pl-4.pr-2.mb-0.pt-2 {{ $formatCurrency(item.quantity * item.item.product_variations[0].price*100*0.5) }}
+                    p.pl-4.pr-2.mb-0.pt-2 {{ $formatCurrency(item.quantity * item.item.price) }}
 
 </template>
 

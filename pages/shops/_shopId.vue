@@ -1,5 +1,5 @@
 <template lang="pug">
-.fill-height.shop-details-page.pa-0.ma-0.full-width(v-if="!!shop")
+.fill-height.shop-details-page.pa-0.ma-0.full-width
   shop-top.ma-0.on-top(@goBack="goBackToPreviousPage" :id="shop.id" v-if="offsetTop < 200")
   shop-top.ma-0.on-top-200(@goBack="goBackToPreviousPage" :id="shop.id" :whiteBackground="true" v-else)
 
@@ -90,19 +90,22 @@ export default {
     FoodList
   },
   layout: 'welcome',
+  async asyncData ({ params, $axios }) {
+    const response = await $axios.$get(`/api/products/vendor/${params.shopId}/`)
+    console.log(response)
+    const shop = response.vendor
+    const foods = response.products_data
+    return { shop, foods }
+  },
   data () {
     return {
       search: null,
-      offsetTop: 0,
-      shop: null,
-      shopId: null
+      offsetTop: 0
     }
   },
   computed: {
     ...mapGetters({
-      // shop: 'home/getSelectedShop',
-      // foods: 'home/getFoods',
-      categories: 'home/getCategories',
+      selectedShop: 'home/getSelectedShop',
       scrollSize: 'screen/getScrollYClass',
       totalAmount: 'cart/getCartTotalAmount',
       totalQuantity: 'cart/getCartQuantity'
@@ -113,19 +116,6 @@ export default {
     shopBackground () {
       return this.shop.image_url
     }
-  },
-  watch: {
-    $route (to, from) {
-      this.shop = to.params.shop
-      this.shopId = to.params.id
-      this.foods = to.params.foods
-    }
-  },
-  created () {
-    this.shop = this.$route.params.shop
-    this.shopId = this.$route.params.id
-    this.foods = this.$route.params.foods
-    console.log(this.foods)
   },
   methods: {
     showTimeDialogue () {
@@ -141,7 +131,7 @@ export default {
       this.search = newValue
     },
     goBackToPreviousPage () {
-      this.$router.push('/shops')
+      this.$router.go(-1)
     },
     goToCheckoutPage () {
       this.$router.push('/checkout')

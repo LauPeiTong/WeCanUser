@@ -87,28 +87,15 @@ export default {
       changeSelectedShop: 'home/changeSelectedShop',
       changeSelectedCategory: 'home/changeSelectedCategory'
     }),
-    cardColor (id) {
-      if (id % 3 === 1) {
-        return '#404348'
-      } else if (id % 3 === 2) {
-        return '#918679'
-      } else {
-        return '#FEB81E'
-      }
-    },
-    getName (name) {
-      return name === 'IT' ? 'information technology' : name.toLowerCase()
-    },
     viewAllCategories () {
       this.$router.push('/categories')
-    },
-    goToShopPage (item) {
-      this.changeSelectedShop(item)
-      this.$router.push('/shopdetails')
     },
     goToShopListPage () {
       this.changeSelectedCategory(this.categories[0])
       this.$router.push('/shops')
+    },
+    goToShopPage (item) {
+      this.$router.push({ name: 'shops-shopId', params: { shopId: item.id } })
     }
   }
 }

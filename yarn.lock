@@ -1477,6 +1477,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/runtime@npm:^7.21.0":
+  version: 7.23.8
+  resolution: "@babel/runtime@npm:7.23.8"
+  dependencies:
+    regenerator-runtime: ^0.14.0
+  checksum: 0bd5543c26811153822a9f382fd39886f66825ff2a397a19008011376533747cd05c33a91f6248c0b8b0edf0448d7c167ebfba34786088f1b7eb11c65be7dfc3
+  languageName: node
+  linkType: hard
+
 "@babel/standalone@npm:^7.22.9":
   version: 7.22.15
   resolution: "@babel/standalone@npm:7.22.15"
@@ -2361,6 +2370,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@nuxtjs/date-fns@npm:^1.5.0":
+  version: 1.5.0
+  resolution: "@nuxtjs/date-fns@npm:1.5.0"
+  dependencies:
+    date-fns: ^2.19.0
+  checksum: 72b39c13d80179d65e99d227add28be2e6c0114df20b8e28809b710e0528f9576f8a0c3c58b919a9be3b49fdde66bf1726386f72d3d71c0f22978d00affe88e1
+  languageName: node
+  linkType: hard
+
 "@nuxtjs/eslint-config@npm:^11.0.0":
   version: 11.0.0
   resolution: "@nuxtjs/eslint-config@npm:11.0.0"
@@ -2971,6 +2989,7 @@ __metadata:
     "@capacitor/core": ^5.3.0
     "@capacitor/ios": ^5.3.0
     "@nuxtjs/axios": ^5.13.6
+    "@nuxtjs/date-fns": ^1.5.0
     "@nuxtjs/eslint-config": ^11.0.0
     "@nuxtjs/eslint-module": ^3.1.0
     "@nuxtjs/vuetify": ^1.12.3
@@ -5009,6 +5028,15 @@ __metadata:
   version: 1.0.1
   resolution: "cyclist@npm:1.0.1"
   checksum: 3cc2fdeb358599ca0ea96f5ecf2fc530ccab7ed1f8aa1a894aebfacd2009281bd7380cb9b30db02a18cdd00b3ed1d7ce81a3b11fe56e33a6a0fe4424dc592fbe
+  languageName: node
+  linkType: hard
+
+"date-fns@npm:^2.19.0":
+  version: 2.30.0
+  resolution: "date-fns@npm:2.30.0"
+  dependencies:
+    "@babel/runtime": ^7.21.0
+  checksum: f7be01523282e9bb06c0cd2693d34f245247a29098527d4420628966a2d9aad154bd0e90a6b1cf66d37adcb769cd108cf8a7bd49d76db0fb119af5cdd13644f4
   languageName: node
   linkType: hard
 
@@ -11391,6 +11419,13 @@ __metadata:
   version: 0.13.11
   resolution: "regenerator-runtime@npm:0.13.11"
   checksum: 27481628d22a1c4e3ff551096a683b424242a216fee44685467307f14d58020af1e19660bf2e26064de946bad7eff28950eae9f8209d55723e2d9351e632bbb4
+  languageName: node
+  linkType: hard
+
+"regenerator-runtime@npm:^0.14.0":
+  version: 0.14.1
+  resolution: "regenerator-runtime@npm:0.14.1"
+  checksum: 9f57c93277b5585d3c83b0cf76be47b473ae8c6d9142a46ce8b0291a04bb2cf902059f0f8445dcabb3fb7378e5fe4bb4ea1e008876343d42e46d3b484534ce38
   languageName: node
   linkType: hard
 

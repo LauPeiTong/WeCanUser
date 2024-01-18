@@ -5,7 +5,7 @@
     w-search-bar.ma-0(@change="searchBy")
   .scroll.scrollbar-hide.ma-0.justify-top.align-center(:style="scrollSize")
     category-list.pb-4.pt-6
-    ads-carousel.pt-4
+    .ads-carousel.pt-4
       v-carousel(
         cycle
         height="150"
@@ -88,6 +88,20 @@ export default {
 
       // const order = await this.$axios.post('/api/orders/', newOrderData)
       // console.log('Order data:', order)
+
+      //   const newProductData = {
+      //     vendor: 421, // Replace with the actual user ID
+      //     name: 'Nasi Goreng',
+      //     description: 'It is delicious',
+      //     original_price: 5.00,
+      //     discount: 10.0,
+      //     expired_date: '2024-01-15T23:59:59',
+      //     image_url: 'https://example.com/image.jpg',
+      //     nutrients: 'Proteins and fat'
+      //   }
+
+      //   const product = await this.$axios.post('/api/products/', newProductData)
+      //   console.log('Products data:', product)
     } catch (e) {
       this.$router.push({ path: '/login' })
     }

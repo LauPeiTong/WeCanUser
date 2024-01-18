@@ -139,7 +139,7 @@ export default {
 }
 
 :deep(input:-internal-autofill-selected) {
-  background-color: red !important;
+  background-color: transparent !important;
 }
 
 </style>

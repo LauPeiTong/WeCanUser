@@ -22,10 +22,10 @@
       template(v-slot:default="{item}")
         .align-center
           v-card.mx-auto.rounded-lg.pt-4(
-            @click="goToFoodDetailsPage(item)"
+            @click="goToProductDetailsPage(item)"
             outlined
           )
-            v-img.rounded-lg.mx-auto.align-end.text-right(:src="require(`../../assets/food/noitem.png`)" width="140" height="110" v-if="item.image_url == ''")
+            v-img.rounded-lg.mx-auto.align-end.text-right(:src="require(`../../assets/food/noitem.png`)" width="140" height="110" v-if="item.image_url == '' || item.image_url == null")
               v-chip.ma-2.rounded-xl(outlined :color="$vuetify.theme.themes.light.primary") {{parseInt(item.discount)}}%
             v-img.rounded-xl.mx-auto.align-end.text-right(:src="item.image_url" width="140" height="110" v-else)
               v-chip.ma-2.rounded-xl(outlined :color="$vuetify.theme.themes.light.primary") {{parseInt(item.discount)}}%
@@ -116,37 +116,13 @@ export default {
   },
   methods: {
     ...mapActions({
-      changeSelectedCategory: 'home/changeSelectedCategory',
-      changeSelectedFood: 'home/changeSelectedFood'
     }),
-    getShopName (id) {
-      return this.shops.find((shop) => {
-        return shop.id === id
-      }).name
-    },
-    goToFoodDetailsPage (food) {
-      this.changeSelectedFood(food)
-      this.$router.push('/fooddetails')
-    },
-    // job
-    cardColor (id) {
-      if (id % 3 === 1) {
-        return '#404348'
-      } else if (id % 3 === 2) {
-        return '#918679'
-      } else {
-        return '#FEB81E'
+    goToProductDetailsPage (item) {
+      try {
+        this.$router.push({ name: 'products-productId', params: { productId: item.id } })
+      } catch (e) {
+        console.log(e)
       }
-    },
-    getName (name) {
-      return name === 'IT' ? 'information technology' : name.toLowerCase()
-    },
-    viewAllCategories () {
-      this.$router.push('/categories')
-    },
-    goToJobsPage (item) {
-      this.changeSelectedCategory(item)
-      this.$router.push('/jobs')
     }
   }
 }
