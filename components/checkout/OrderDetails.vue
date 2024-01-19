@@ -102,7 +102,8 @@ export default {
       shop: 'cart/getSelectedShop',
       total: 'cart/getCartTotalAmount',
       originalAmount: 'cart/getOriginalTotalAmount',
-      cart: 'cart/getCart'
+      cart: 'cart/getCart',
+      user: 'auth/getAuthUser'
     }),
     amountToRoundUp () {
       const totalAmount = this.total + this.tax
@@ -139,10 +140,15 @@ export default {
           status: 'Pending',
           delivery_or_pickup: this.cart.pickupMethod,
           notes: 'Need cutlery, thank you.',
+          points: Math.round(this.total),
           products: formattedCartItem
         }
         const order = await this.$axios.post('/api/orders/', newOrderData)
         console.log('Order is placed: ', order)
+
+        if (this.donation) {
+          this.makeDonation(order.data.id)
+        }
 
         this.removeCart(this.cart)
         console.log('Cart is removed')
@@ -150,6 +156,26 @@ export default {
         this.goToSuccessPaymentPage()
       } catch (e) {
         console.log('Order is failed: ', e)
+      }
+    },
+    async makeDonation (id) {
+      try {
+        const donation = {
+          customer: this.$store.getters['auth/getAuthId'],
+          organization_name: 'WeCan Project',
+          amount: this.amountToRoundUp.toFixed(2),
+          order: id,
+          type: 'Round-up'
+        }
+
+        const response = await this.$axios.post('/api/donations/', donation)
+        console.log('Donation is done: ', response)
+
+        const user = await this.$axios.get(`/api/users/user/${this.user.id}`)
+
+        this.$store.dispatch('auth/changePoints', user.data.points)
+      } catch (e) {
+        console.log('Fail to donate: ', e)
       }
     },
     goToSuccessPaymentPage () {

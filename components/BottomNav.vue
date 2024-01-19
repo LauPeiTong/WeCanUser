@@ -35,6 +35,13 @@ export default {
           iconFill: 'home'
         },
         {
+          label: 'Map',
+          path: '/foodmap',
+          name: 'foodmap',
+          icon: 'compass-outline',
+          iconFill: 'compass'
+        },
+        {
           label: 'Food',
           path: '/foodtracker',
           name: 'foodtracker',
@@ -42,18 +49,11 @@ export default {
           iconFill: 'file-text'
         },
         {
-          label: 'WeBot',
-          path: '/message',
-          name: 'message',
-          icon: 'message-square-outline',
-          iconFill: 'message-square'
-        },
-        {
-          label: 'Map',
-          path: '/foodmap',
-          name: 'foodmap',
-          icon: 'compass-outline',
-          iconFill: 'compass'
+          label: 'Order',
+          path: '/orders',
+          name: 'orders',
+          icon: 'file-text-outline',
+          iconFill: 'file-text'
         },
         {
           label: 'Donation',

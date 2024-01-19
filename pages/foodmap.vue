@@ -3,7 +3,7 @@
   v-row.pa-0.ma-0.upper-row
     upper-title.ma-0(:title="'Map'" :icon="'more-vertical'" @goBack="goBackToPreviousPage" :back="true")
   .scroll.ma-0.justify-top.align-center(:style="scrollSize")
-    gmap-map(:zoom="17" :center="center" style="width: 100%; height: 100%" class="mb-5"
+    gmap-map(:zoom="12" :center="center" style="width: 100%; height: 100%" class="mb-5"
       :options="options"
     )
       gmap-marker(:key="index"
@@ -20,9 +20,17 @@
           background-color="white"
           :color="$vuetify.theme.themes.light.tertairy"
         )
-          v-tab(v-for="item in tabs" :key="'tab-' + item.id" flat)
-            v-btn(outlined rounded small :color="$vuetify.theme.themes.light.primary") {{item.name}}
-        shops-list.pb-4
+          v-tab(v-for="i in tabs" :key="'tab-' + i.id" :href="'#tab-' + i.id" flat)
+            v-btn(outlined rounded small :color="$vuetify.theme.themes.light.primary") {{i.name}}
+
+        v-tabs-items(v-model="tab")
+          v-tab-item(v-for="i in tabs"
+            :key="i.id"
+            :value="'tab-' + i.id"
+          )
+            shops-list.pb-4(v-if="i.id == 1")
+            shops-list.pb-4(v-else-if="i.id == 2" :type="'Menu Rahmah'" :title="'Shops offer Menu Rahmah'")
+            shops-list.pb-4(v-else :type="'Free Delivery'" :title="'Shops with Free Delivery'")
 </template>
 
 <script>
@@ -42,7 +50,7 @@ export default {
   layout: 'welcome',
   data () {
     return {
-      tab: null,
+      tab: 'tab-1',
       tabs: [
         {
           id: 1,
@@ -54,20 +62,14 @@ export default {
         },
         {
           id: 3,
-          name: 'Foodbanks'
+          name: 'Free Delivery'
         }
       ],
       center: {
         lat: 3.1960522,
         lng: 101.595067
       },
-      locationMarkers: [
-        { id: 1, position: { lat: 3.1960522, lng: 101.595067 } },
-        { id: 2, position: { lat: 3.197281397990241, lng: 101.59388994498003 } },
-        { id: 2, position: { lat: 3.1969203321745496, lng: 101.59376165676089 } },
-        { id: 2, position: { lat: 3.1977727716066355, lng: 101.59301167636636 } },
-        { id: 2, position: { lat: 3.1953579175758318, lng: 101.5933018253177 } }
-      ],
+      locationMarkers: [],
       locPlaces: [],
       existingPlace: null,
       options: {
@@ -86,8 +88,24 @@ export default {
       scrollSize: 'screen/getScrollTopClass'
     })
   },
-  mounted () {
-    this.locateGeoLocation()
+  async mounted () {
+    try {
+      this.locateGeoLocation()
+      const response = await this.$axios.get('/api/users/vendors/')
+      const nearByRestaurants = response.data
+
+      for (let i = 0; i < nearByRestaurants.length; i++) {
+        const l = {
+          id: nearByRestaurants[i].id,
+          position: { lat: nearByRestaurants[i].latitude, lng: nearByRestaurants[i].longitude }
+        }
+
+        this.locationMarkers.push(l)
+      }
+      console.log('Explore vendors: ', this.locationMarkers)
+    } catch (e) {
+      console.log('Error: ', e)
+    }
   },
   methods: {
     initMarker (loc) {
@@ -106,15 +124,20 @@ export default {
       }
     },
     locateGeoLocation: function () {
-      navigator.geolocation.getCurrentPosition((res) => {
-        this.center = {
-          lat: res.coords.latitude,
-          lng: res.coords.longitude
-        }
-      })
+      // navigator.geolocation.getCurrentPosition((res) => {
+      //   this.center = {
+      //     lat: res.coords.latitude,
+      //     lng: res.coords.longitude
+      //   }
+      // })
+
+      this.center = {
+        lat: this.$store.getters['auth/getAuthUser'].latitude,
+        lng: this.$store.getters['auth/getAuthUser'].longitude
+      }
     },
     goBackToPreviousPage () {
-      this.$router.go(-1)
+      this.$router.push('/home')
     }
   }
 }

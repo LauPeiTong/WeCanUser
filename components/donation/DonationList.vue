@@ -45,31 +45,47 @@
           v-col(cols="6")
             v-card.rounded-lg.pa-2.text-center(outlined)
               v-icon.mb-1.mr-1(large :color="$vuetify.theme.themes.light.primary") mdi-alpha-w-circle
-              span.text-h5.tertiary--text.font-weight-bold 1255
+              span.text-h5.tertiary--text.font-weight-bold {{user.points}}
               p.mb-0.font-weight-regular Your WePoints
           v-col(cols="6")
             v-card.rounded-lg.pa-2.text-center(outlined)
               v-icon.mb-1.mr-1(large :color="$vuetify.theme.themes.light.green") mdi-trophy
-              span.text-h5.success--text.font-weight-bold Level 14
+              span.text-h5.success--text.font-weight-bold {{getLevel}}
               p.mb-0.font-weight-regular Your level
           v-col(cols="12")
             p.mb-0.text-h6.font-weight-medium Donate your WePoints
-            v-card.rounded-lg.pa-2.mb-3(outlined)
-              .d-flex.justify-center
-                v-img.rounded-lg(:src="require(`../../assets/donation/donation3.jpg`)"  height="200" width="300")
-              p.pt-1.font-weight-medium.mb-0 RM10 to fight hunger
-              p.mb-1.caption.text-justify The Lost Food Project
-              .d-flex.align-center
-                h2.primary--text 1,000
-                p.mb-0.ml-2 WePoints
-            v-card.rounded-lg.pa-2(outlined)
-              .d-flex.justify-center
-                v-img.rounded-lg(:src="require(`../../assets/donation/donation4.jpg`)"  height="200" width="300")
-              p.pt-1.font-weight-medium.mb-0 RM20 to fight hunger
-              p.mb-1.caption.text-justify The Lost Food Project
-              .d-flex.align-center
-                h2.primary--text 2,000
-                p.mb-0.ml-2 WePoints
+            template(v-for="d in donations")
+              v-card.rounded-lg.pa-2.mb-3(outlined @click="selectDonation(d)" :disabled="user.points < d.points")
+                .d-flex.justify-center
+                  v-img.rounded-lg(:src="require(`../../assets/donation/donation${d.id}.jpg`)"  height="200" width="300")
+                p.pt-1.font-weight-medium.mb-0 {{d.name}}
+                p.mb-1.caption.text-justify {{d.organization_name}}
+                .d-flex.align-center
+                  h2.primary--text {{d.points}}
+                  p.mb-0.ml-2 WePoints
+
+    v-dialog(
+      v-model="dialog"
+      max-width="290"
+    )
+      v-card.rounded-xl
+        v-img(height="250" :src="require(`../../assets/donation/donation${selectedDonation?.id}.jpg`)" v-if="selectedDonation")
+        v-card-title.text-h5 Donate {{selectedDonation?.points}} points?
+        v-card-text Donate {{$formatCurrency(selectedDonation?.amount)}} to {{selectedDonation?.organization_name}}
+        v-card-text
+          a.text-decoration-underline View Details
+        v-card-actions
+          v-spacer
+          v-btn(
+            color="gray darken-1"
+            text
+            @click="dialog = false"
+          ) Cancel
+          v-btn.rounded-xl(
+            color="primary"
+            elevation="0"
+            @click="makeDonation"
+          ) Donate
 </template>
 
 <script>
@@ -92,25 +108,64 @@ export default {
         { id: 1, name: 'Feeds', status: 1 },
         { id: 2, name: 'Donate', status: 2 }
       ],
-      items: null
+      donations: [
+        { id: 3, name: 'RM10 to fight hunger', points: 1000, organization_name: 'The Lost Food Project', amount: 10 },
+        { id: 4, name: 'RM20 to fight hunger', points: 2000, organization_name: 'The Lost Food Project', amount: 20 },
+        { id: 5, name: 'RM10 to fight hunger', points: 1000, organization_name: 'Yayasan Food Bank Malaysia', amount: 10 },
+        { id: 6, name: 'RM20 to fight hunger', points: 2000, organization_name: 'Yayasan Food Bank Malaysia', amount: 20 }
+      ],
+      selectedDonation: null,
+      items: null,
+      dialog: false
     }
   },
   computed: {
     ...mapGetters({
       scrollSize: 'screen/getScrollXClass',
-      foods: 'food/getFoods'
-    })
-  },
-  mounted () {
-    this.updateList(1)
+      user: 'auth/getAuthUser'
+    }),
+    getLevel () {
+      if (this.user.points < 100) {
+        return 'Bronze'
+      } else if (this.user.points < 500) {
+        return 'Silver'
+      } else if (this.user.points < 1000) {
+        return 'Gold'
+      } else if (this.user.points < 5000) {
+        return 'Platinum'
+      }
+      return 'Hero'
+    }
   },
   methods: {
     ...mapActions({
     }),
-    updateList (status) {
-      this.items = this.foods.filter((food) => {
-        return food.status === status
-      })
+    selectDonation (item) {
+      this.selectedDonation = item
+      console.log(this.selectedDonation)
+      this.dialog = true
+    },
+    async makeDonation () {
+      try {
+        const donation = {
+          customer: this.user.id,
+          organization_name: this.selectedDonation.organization_name,
+          amount: this.selectedDonation.amount,
+          points: this.selectedDonation.points,
+          type: 'Points'
+        }
+
+        const response = await this.$axios.post('/api/donations/', donation)
+        console.log('Donaiton is done: ', response)
+
+        const user = await this.$axios.get(`/api/users/user/${this.user.id}`)
+
+        this.$store.dispatch('auth/changePoints', user.data.points)
+
+        this.dialog = false
+      } catch (e) {
+        console.log('Fail to donate: ', e)
+      }
     }
   }
 }

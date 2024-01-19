@@ -1,25 +1,25 @@
 <template lang="pug">
-.fill-height.donation-page.pa-0.ma-0
+.fill-height.tracker-page.pa-0.ma-0
   v-row.pa-0.ma-0.upper-row
-    upper-title.ma-0(:title="'Donation'" :icon="'more-vertical'")
+    upper-title.ma-0(:title="'Food Tracker'" :icon="'more-vertical'")
     w-search-bar.ma-0(@change="searchBy")
   .scroll.ma-0.justify-top.align-center(:style="scrollSize")
-    donation-list.pt-10.pb-2
+    food-list.pt-10.pb-2
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
 
-import UpperTitle from '../components/UpperTitle.vue'
-import WSearchBar from '../components/componenets-custom/WSearchBar.vue'
-import DonationList from '../components/donation/DonationList.vue'
+import UpperTitle from '../../components/UpperTitle.vue'
+import WSearchBar from '../../components/componenets-custom/WSearchBar.vue'
+import FoodList from '../../components/foodtracker/FoodList.vue'
 
 export default {
-  name: 'DonationPage',
+  name: 'FoodTrackerPage',
   components: {
     UpperTitle,
     WSearchBar,
-    DonationList
+    FoodList
   },
   layout: 'default',
   data () {

@@ -88,7 +88,9 @@ export default {
           phone: response.data.customer_data.phone,
           address: response.data.customer_data.address,
           points: response.data.customer_data.points,
-          imageUrl: response.data.customer_data.image_url
+          imageUrl: response.data.customer_data.image_url,
+          latitude: response.data.customer_data.latitude,
+          longitude: response.data.customer_data.longitude
         }
 
         this.addTokenToAxiosHeader(user.token)

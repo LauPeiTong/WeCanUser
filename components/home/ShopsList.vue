@@ -1,8 +1,8 @@
 <template lang="pug">
 .shops-list
   v-row.pa-0.ma-0.px-4
-    v-col.pa-0.ma-0
-      p.text-h6.font-weight-medium.pt-4.mb-0 Shops near you
+    v-col.pa-0.ma-0(cols="8")
+      p.text-h6.font-weight-medium.pt-4.mb-0 {{title}}
     v-col.pa-0.ma-0.d-flex
       v-row.pt-4.mb-1.pr-0.align-end.justify-end(@click="goToShopListPage")
         p.mb-0.primary--text View all
@@ -50,6 +50,14 @@ export default {
     VueHorizontalList
   },
   props: {
+    type: {
+      type: String,
+      default: 'near'
+    },
+    title: {
+      type: String,
+      default: 'Shops near you'
+    }
   },
   data () {
     return {
@@ -75,9 +83,14 @@ export default {
   },
   async mounted () {
     try {
-      const response = await this.$axios.get('/api/users/vendors/?type=near')
+      let response = null
+      if (this.type === 'near') {
+        response = await this.$axios.get('/api/users/vendors/?type=near')
+      } else {
+        response = await this.$axios.get(`/api/users/vendors/?tags=${this.type}`)
+      }
       this.nearByRestaurants = response.data
-      // console.log(this.nearByRestaurants)
+      console.log('Shops: ', this.nearByRestaurants)
     } catch (e) {
       this.$router.push({ path: '/login' })
     }

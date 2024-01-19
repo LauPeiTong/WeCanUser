@@ -1,25 +1,25 @@
 <template lang="pug">
 .fill-height.tracker-page.pa-0.ma-0
   v-row.pa-0.ma-0.upper-row
-    upper-title.ma-0(:title="'Food Tracker'" :icon="'more-vertical'")
+    upper-title.ma-0(:title="'Orders'" :icon="'more-vertical'")
     w-search-bar.ma-0(@change="searchBy")
   .scroll.ma-0.justify-top.align-center(:style="scrollSize")
-    food-list.pt-10.pb-2
+    order-list.pt-10.pb-2
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
 
-import UpperTitle from '../components/UpperTitle.vue'
-import WSearchBar from '../components/componenets-custom/WSearchBar.vue'
-import FoodList from '../components/foodtracker/FoodList.vue'
+import UpperTitle from '../../components/UpperTitle.vue'
+import OrderList from '../../components/orders/OrderList.vue'
+import WSearchBar from '../../components/componenets-custom/WSearchBar.vue'
 
 export default {
-  name: 'FoodTrackerPage',
+  name: 'OrdersPage',
   components: {
     UpperTitle,
-    WSearchBar,
-    FoodList
+    OrderList,
+    WSearchBar
   },
   layout: 'default',
   data () {

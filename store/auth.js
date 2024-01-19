@@ -31,12 +31,18 @@ export const mutations = {
       phone: user.phone,
       address: user.address,
       points: user.points,
-      imageUrl: user.imageUrl
+      imageUrl: user.imageUrl,
+      latitude: user.latitude,
+      longitude: user.longitude
     }
-    console.log(state.user)
+    // console.log('Authentication: ', state.user)
   },
   resetAuth (state) {
     state.user = null
+  },
+  updatePoints (state, points) {
+    state.user.points = points
+    console.log(state.user)
   }
 }
 
@@ -52,6 +58,9 @@ export const actions = {
   },
   setAuthUser ({ commit }, user) {
     commit('updateAuthUser', user)
+  },
+  changePoints ({ commit }, points) {
+    commit('updatePoints', points)
   },
   async logout ({ commit, dispatch }) {
     commit('resetAuth')
