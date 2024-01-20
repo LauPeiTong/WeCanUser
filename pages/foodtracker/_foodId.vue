@@ -66,7 +66,7 @@
                 v-list-item.px-4
                   v-list-item-content
                     pre.mb-0(v-if="d.nextline" style="font-family: Arial; font-size: 16px; line-height: 1.4;") {{d.details}}
-                    p.mb-0(v-else) {{food.name + d.details}}
+                    p.mb-0(v-else) {{food.description == '' ?  food.name + d.details : food.description}}
 
 </template>
 
