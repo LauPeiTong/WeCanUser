@@ -78,7 +78,7 @@ export default {
   async mounted () {
     try {
       const response = await this.$axios.get('/api/products/?recommended=true')
-      this.recommendedFoods = response
+      this.recommendedFoods = response.data
       console.log('Recommended food: ', this.recommendedFoods)
     } catch (e) {
       this.$router.push({ path: '/login' })
