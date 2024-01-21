@@ -150,10 +150,12 @@ export default {
           this.makeDonation(order.data.id)
         }
 
+        const points = Math.round(this.total)
+
         this.removeCart(this.cart)
         console.log('Cart is removed')
 
-        this.goToSuccessPaymentPage()
+        this.goToSuccessPaymentPage(points)
       } catch (e) {
         console.log('Order is failed: ', e)
       }
@@ -178,8 +180,8 @@ export default {
         console.log('Fail to donate: ', e)
       }
     },
-    goToSuccessPaymentPage () {
-      this.$router.push('/successpayment')
+    goToSuccessPaymentPage (num) {
+      this.$router.push({ name: 'successpayment', params: { points: num } })
     }
   }
 }

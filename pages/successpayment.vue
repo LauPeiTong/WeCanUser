@@ -5,7 +5,7 @@
   .scroll.ma-0.justify-top.align-center.full-width.pb-16(:style="scrollSize")
     v-img.mx-auto(:src="require(`../assets/img/success1.png`)" max-height="300" max-width="300")
     v-card.mt-8.py-2.d-flex.align-end.justify-center.rounded-xl.mx-auto(outlined max-width="180")
-      h1.primary--text.text-center.font-weight-bold +5
+      h1.primary--text.text-center.font-weight-bold +{{points}}
       h4.mb-2.ml-2.primary--text.primary--text WePoints
     h2.text-center.font-weight-regular.pt-4 Your Order has been accepted
     p.darkGrey--text.text-center We’ll let you know when the order is ready.
@@ -41,6 +41,10 @@ export default {
     WButton
   },
   layout: 'welcome',
+  asyncData ({ params, $axios }) {
+    const points = params.points
+    return { points }
+  },
   data () {
     return {
       search: null

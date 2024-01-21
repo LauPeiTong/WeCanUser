@@ -45,7 +45,7 @@ export default {
   },
   async mounted () {
     try {
-      this.orders = await this.$axios.$get('/api/orders/')
+      this.orders = await this.$axios.$get('/api/orders/summary/?status=true')
       console.log('Order list: ', this.orders)
       this.updateList('Pending')
     } catch (e) {
