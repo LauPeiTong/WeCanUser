@@ -61,7 +61,7 @@ export default {
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Set your API key here
-    baseURL: 'http://localhost:8000',
+    baseURL: 'https://peitong.pythonanywhere.com',
     headers: {
       common: {
         'Content-Type': 'application/json',
