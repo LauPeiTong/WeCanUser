@@ -9,6 +9,7 @@
       gmap-marker(:key="index"
         v-for="(m, index) in locationMarkers"
         :position="m.position"
+        :clickable="true"
         @click="center = m.position"
       )
     v-card
@@ -97,8 +98,10 @@ export default {
       for (let i = 0; i < nearByRestaurants.length; i++) {
         const l = {
           id: nearByRestaurants[i].id,
-          position: { lat: nearByRestaurants[i].latitude, lng: nearByRestaurants[i].longitude }
+          position: { lat: nearByRestaurants[i].latitude, lng: nearByRestaurants[i].longitude },
+          title: nearByRestaurants[i].display_name
         }
+        console.log(l)
 
         this.locationMarkers.push(l)
       }
